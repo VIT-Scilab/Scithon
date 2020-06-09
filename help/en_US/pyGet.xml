@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="pyGet" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <refnamediv>
+    <refname>pyGet</refname>
+    <refpurpose>Retrieves variable defined through py() or
+pyExec(). </refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>Syntax</title>
+    <synopsis>pyGet(string Var_Name)</synopsis>
+  </refsynopsisdiv>
+  <refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>file_location</term>
+        <listitem>
+          <para>
+            Variable name as a string.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsection>
+  <refsynopsisdiv>
+    <title>Description</title>
+    <para>
+      Retrieves a named variable previously defined through py() or
+pyExec().
+    </para>
+  </refsynopsisdiv> 
+  <refsynopsisdiv>
+    <title>Example</title>
+    <para>example.py code:</para>
+    <synopsis>a = 5;
+print(a);
+    </synopsis>
+    <synopsis>
+--&#62; pyExec(&quot;D:\example.py&quot;)
+ ans  =
+
+  &quot;5
+&quot;
+
+--&#62; pyGet(&quot;a&quot;)
+ ans  =
+
+5
+    </synopsis>
+  </refsynopsisdiv>
+</refentry>

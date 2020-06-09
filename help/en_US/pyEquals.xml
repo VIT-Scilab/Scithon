@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="pyEquals" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <refnamediv>
+    <refname>pyEquals</refname>
+    <refpurpose>Checks if two values are equal or not. </refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>Syntax</title>
+    <synopsis>pyEquals(arg1, arg2)</synopsis>
+  </refsynopsisdiv>
+  <refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>arg1</term>
+        <listitem>
+          <para>
+            Value to be compared.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>arg2</term>
+        <listitem>
+          <para>
+            Value to be compared with.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsection>
+  <refsynopsisdiv>
+    <title>Description</title>
+    <para>
+      Compares the two arguments and returns the result; equivalent
+to arg1 == arg2. Arguments can be of type int, double, string, bool or python variable.
+    </para>
+  </refsynopsisdiv> 
+  <refsynopsisdiv>
+    <title>Example</title>
+    <synopsis>--> Py = pyImport("builtins")
+ Py  = 
+
+&lt;module 'builtins' (built-in)&gt;
+--> a = Py.int(1)
+ a  = 
+
+1
+--> pyEquals(a,1)
+ ans  =
+
+  T
+</synopsis>
+  </refsynopsisdiv>
+</refentry>

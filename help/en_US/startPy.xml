@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="startPy" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <refnamediv>
+    <refname>startPy</refname>
+    <refpurpose>Starts the python interpreter. </refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>Syntax</title>
+    <synopsis>startPy</synopsis>
+  </refsynopsisdiv>
+  <refsynopsisdiv>
+    <title>Description</title>
+    <para>
+      Starts the python interpreter, must be called before using any of the other
+functions offered by SciPy.
+    </para>
+  </refsynopsisdiv>
+  <refsynopsisdiv>
+    <title>Example</title>
+    <synopsis>--&#62; startPy
+
+--&#62; py(&quot;a=5;print(a);&quot;)
+ ans  =
+
+  &quot;5
+&quot;
+
+--&#62; quitPy
+</synopsis>
+  </refsynopsisdiv>
+</refentry>

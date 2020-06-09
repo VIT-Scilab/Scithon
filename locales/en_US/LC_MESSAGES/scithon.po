@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: a XML file:3
+msgid "Rectangle"
+msgstr ""
+
+#: a XML file:4
+msgid "My Title"
+msgstr ""
+
+#: a XML file:5
+msgid "Height"
+msgstr ""
+
+#: a XML file:10
+msgid "Width"
+msgstr ""
+
+#: a XML file:15
+msgid "Color"
+msgstr ""
+
+#: a XML file:16
+msgid "Outline"
+msgstr ""

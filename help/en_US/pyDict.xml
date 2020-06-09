@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="pyDict" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <refnamediv>
+    <refname>pyDict</refname>
+    <refpurpose>Creates a python dictionary. </refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>Syntax</title>
+    <synopsis>pyDict(key1, val1, key2, val2…)</synopsis>
+  </refsynopsisdiv>
+  <refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>key1</term>
+        <listitem>
+          <para>
+            1st Key Value
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>val1</term>
+        <listitem>
+          <para>
+            Corresponding value for key referred as key1.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsection>
+  <refsynopsisdiv>
+    <title>Description</title>
+    <para>
+      Creates and returns a python dictionary containing
+the key-value pairs passed. Arguments can be of type int, double, string, bool or python
+variable. Python variables passed for keys must be hashable.
+    </para>
+  </refsynopsisdiv> 
+    <refsynopsisdiv>
+    <title>Example</title>
+    <synopsis>--&#62; Y = pyDict(&quot;hello&quot;, &quot;world&quot;)
+ Y  = 
+
+{&apos;hello&apos;: &apos;world&apos;}
+--&#62; disp(Y(&quot;hello&quot;))
+
+&apos;world&apos;
+</synopsis>
+  </refsynopsisdiv>
+</refentry>

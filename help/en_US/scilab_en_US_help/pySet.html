@@ -1,0 +1,86 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>pySet</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="pyList.html">&lt;&lt; pyList</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_00e717dc4999dd7924f12b12ce49c381.html">scithon</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="pyTuple.html">pyTuple &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path" dir="ltr"><a href="index.html">scithon</a> &gt;&gt; <a href="section_00e717dc4999dd7924f12b12ce49c381.html">scithon</a> &gt; pySet</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">pySet</h1>
+    <p class="refpurpose">Creates a python set.</p></div>
+  <div class="refsynopsisdiv"><h3 class="title">Syntax</h3>
+    <div class="synopsis"><pre><span class="functionid">pySet</span><span class="default">(</span><span class="default">pyVar</span> <span class="default">var_name</span><span class="default">) </span><span class="comment">// creating Set from another python variable</span>
+<span class="functionid">pySet</span><span class="default">(</span><span class="default">arg0</span><span class="default">, </span><span class="default">arg1</span><span class="default">…) </span><span class="comment">// creating set from elements</span></pre></div></div>
+  <div class="refsection"><h3 class="title">Arguments</h3>
+    <dl><dt><span class="term">arg0</span>
+        <dd><p class="para">Element to be inserted in the set</p></dd></dt></dl>
+    <dl><dt><span class="term">arg1</span>
+        <dd><p class="para">Element to be inserted in the set</p></dd></dt></dl>
+    <dl><dt><span class="term">var_name</span>
+        <dd><p class="para">pyList or pyTuple which has to be converted to a set</p></dd></dt></dl></div>
+  <div class="refsynopsisdiv"><h3 class="title">Description</h3>
+    <p class="para">Creates and returns a python set containing the arguments
+passed or transforms python list or tuple into a set. 
+Arguments can be of type int, double, string, bool or python variable.</p></div> 
+  <div class="refsynopsisdiv"><h3 class="title">Example</h3>
+    <div class="synopsis"><pre><span class="default">--</span>&gt; <span class="functionid">pySet</span><span class="default">(1,2,3,4,1,2)</span>
+<span class="default">ans</span><span class="default">  =</span>
+
+<span class="default">{1, 2, 3, 4}</span></pre></div>
+<div class="synopsis"><pre><span class="default">--</span>&gt; <span class="default">L</span><span class="default"> = </span><span class="default">pyList</span><span class="default">(1,2,3,4,1,2)</span>
+<span class="default">L</span><span class="default">  = </span>
+
+<span class="default">[1, 2, 3, 4, 1, 2]</span>
+<span class="default">--</span>&gt; <span class="default">S</span><span class="default"> = </span><span class="functionid">pySet</span><span class="default">(</span><span class="default">L</span><span class="default">)</span>
+<span class="default">S</span><span class="default">  = </span>
+
+<span class="default">{1, 2, 3, 4}</span></pre></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="pyList.html">&lt;&lt; pyList</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_00e717dc4999dd7924f12b12ce49c381.html">scithon</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="pyTuple.html">pyTuple &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

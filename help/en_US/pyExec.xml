@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="pyExec" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <refnamediv>
+    <refname>pyExec</refname>
+    <refpurpose>Executes a python file at a given location. </refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>Syntax</title>
+    <synopsis>pyExec(string file_location)</synopsis>
+  </refsynopsisdiv>
+  <refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>file_location</term>
+        <listitem>
+          <para>
+            The location to .py file as a string.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsection>
+  <refsynopsisdiv>
+    <title>Description</title>
+    <para>
+      Executes a python file (of format .py) in scilab environment and variables are accessible through pyGet.
+    </para>
+  </refsynopsisdiv> 
+  <refsynopsisdiv>
+    <title>Example</title>
+    <para>example.py code:</para>
+    <synopsis>a = 5;
+print(a);
+    </synopsis>
+    <synopsis>
+    --&#62; pyExec(&quot;D:\example.py&quot;)
+ ans  =
+
+  &quot;5
+&quot;
+    </synopsis>
+  </refsynopsisdiv>
+</refentry>

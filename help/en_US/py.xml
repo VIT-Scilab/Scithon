@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="py" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <refnamediv>
+    <refname>py</refname>
+    <refpurpose>Executes python statements. </refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>Syntax</title>
+    <synopsis>py(string code)</synopsis>
+  </refsynopsisdiv>
+  <refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>code</term>
+        <listitem>
+          <para>
+            A string containing simple python statements.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsection>
+  <refsynopsisdiv>
+    <title>Description</title>
+    <para>
+      Executes simple python statements and returns the output. Variables declared here can be accessed through pyGet().
+    </para>
+  </refsynopsisdiv> 
+  <refsynopsisdiv>
+    <title>Example</title>
+    <synopsis>py(&quot;a = 50; b = a**2;print(b)&quot;)</synopsis>
+    <para>The output for the above code is</para>
+    <synopsis>ans  =
+
+  &quot;2500
+&quot;</synopsis>
+  </refsynopsisdiv>
+</refentry>

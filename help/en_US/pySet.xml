@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="pySet" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <refnamediv>
+    <refname>pySet</refname>
+    <refpurpose>Creates a python set. </refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>Syntax</title>
+    <synopsis>pySet(pyVar var_name) // creating Set from another python variable
+    pySet(arg0, arg1…) // creating set from elements</synopsis>
+  </refsynopsisdiv>
+  <refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>arg0</term>
+        <listitem>
+          <para>
+            Element to be inserted in the set
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>arg1</term>
+        <listitem>
+          <para>
+            Element to be inserted in the set
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>var_name</term>
+        <listitem>
+          <para>
+            pyList or pyTuple which has to be converted to a set
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsection>
+  <refsynopsisdiv>
+    <title>Description</title>
+    <para>
+      Creates and returns a python set containing the arguments
+passed or transforms python list or tuple into a set. 
+Arguments can be of type int, double, string, bool or python variable.
+    </para>
+  </refsynopsisdiv> 
+  <refsynopsisdiv>
+    <title>Example</title>
+    <synopsis>--&#62; pySet(1,2,3,4,1,2)
+ ans  =
+
+{1, 2, 3, 4}
+</synopsis>
+<synopsis>--&#62; L = pyList(1,2,3,4,1,2)
+ L  = 
+
+[1, 2, 3, 4, 1, 2]
+--&#62; S = pySet(L)
+ S  = 
+
+{1, 2, 3, 4}
+</synopsis>
+  </refsynopsisdiv>
+</refentry>

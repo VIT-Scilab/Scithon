@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="pyTuple" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <refnamediv>
+    <refname>pyTuple</refname>
+    <refpurpose>Creates a python tuple. </refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>Syntax</title>
+    <synopsis>pyTuple(arg0, arg1…)</synopsis>
+  </refsynopsisdiv>
+  <refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>arg0</term>
+        <listitem>
+          <para>
+            Value at index 0 of the Tuple
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+    <variablelist>
+      <varlistentry>
+        <term>arg1</term>
+        <listitem>
+          <para>
+            Value at index 1 of the Tuple
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsection>
+<refsynopsisdiv>
+    <title>Example</title>
+    <synopsis>--&#62; X = pyTuple(1,2,&quot;Hello&quot;,3)
+ X  = 
+
+(1, 2, &apos;Hello&apos;, 3)
+--&#62; disp(X(0))
+
+1
+--&#62; disp(X(2))
+
+&apos;Hello&apos;
+</synopsis>
+  </refsynopsisdiv>
+</refentry>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+<!--Begin Entities-->
+<!ENTITY a8adffe7eeff007826c371e686b71cd5f SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/py.xml">
+<!ENTITY a95d96338bfc46b0fa518b7694ae61a80 SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/pyDict.xml">
+<!ENTITY ae6cdd498f246425ca06d96d0c8753f8f SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/pyEquals.xml">
+<!ENTITY ab9db5b96168c8ddaea34a665246b4b0e SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/pyExec.xml">
+<!ENTITY a3621245d566762ea7b691ff5e66ba478 SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/pyGet.xml">
+<!ENTITY a20d8eac77eb193487d572ed380b2669e SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/pyImport.xml">
+<!ENTITY a233ee119c6de1573b8999e5444702cfb SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/pyList.xml">
+<!ENTITY a8ce90aae8b6e1eaebd64588b933b0b47 SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/pySet.xml">
+<!ENTITY a86f40cde09677512fb9524050aed1707 SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/pyTuple.xml">
+<!ENTITY a748ed8cd44488810bc4c7cb6541ec116 SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/quitPy.xml">
+<!ENTITY a321052d5657b0fd92a2694291d70242e SYSTEM "file:///H:/Scithon/SciPy-v1.0.0/help/en_US/startPy.xml">
+<!--End Entities-->
+]>
+<book version="5.0-subset Scilab" xml:lang="en_US"
+      xmlns="http://docbook.org/ns/docbook"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:mml="http://www.w3.org/1998/Math/MathML"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:db="http://docbook.org/ns/docbook">
+  <info xml:id='scithon_manual'>
+    <title>scithon</title>
+  </info>
+
+<part xml:id='section_00e717dc4999dd7924f12b12ce49c381'>
+<title>scithon</title>
+&a8adffe7eeff007826c371e686b71cd5f;
+&a95d96338bfc46b0fa518b7694ae61a80;
+&ae6cdd498f246425ca06d96d0c8753f8f;
+&ab9db5b96168c8ddaea34a665246b4b0e;
+&a3621245d566762ea7b691ff5e66ba478;
+&a20d8eac77eb193487d572ed380b2669e;
+&a233ee119c6de1573b8999e5444702cfb;
+&a8ce90aae8b6e1eaebd64588b933b0b47;
+&a86f40cde09677512fb9524050aed1707;
+&a748ed8cd44488810bc4c7cb6541ec116;
+&a321052d5657b0fd92a2694291d70242e;
+</part>
+</book>
