@@ -8,7 +8,6 @@
 /sci_gateway/cpp/Release
 /sci_gateway/cpp/cleaner.sce
 /sci_gateway/cpp/loader.sce
-/sci_gateway/cpp/sci_checkPython.cpp
 /sci_gateway/cpp/scithon_cpp.cpp
 /sci_gateway/cpp/scithon_cpp.def
 /sci_gateway/cpp/scithon_cpp.dll
