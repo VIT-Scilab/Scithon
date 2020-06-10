@@ -14,6 +14,7 @@ function builder_gateway_cpp()
         "pySet", "sci_pySet", "cppsci";
         "pyImport", "sci_pyImport", "cppsci";
         "pyEquals", "sci_pyEquals", "cppsci";
+        "_checkPython", "sci_checkPython", "cppsci";
     ];
 
     CFLAGS = ilib_include_flag(gwPath);
@@ -38,6 +39,7 @@ function builder_gateway_cpp()
         "sci_pySet.cpp";
         "sci_pyImport.cpp";
         "sci_pyEquals.cpp";
+        "sci_checkPython.cpp";
     ];
 
     //WITHOUT_AUTO_PUTLHSVAR = %t;

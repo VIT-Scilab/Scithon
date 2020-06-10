@@ -5,8 +5,8 @@
 
 function scithonlib = startModule()
 
-    TOOLBOX_NAME  = "scipy";
-    TOOLBOX_TITLE = "SciPy";
+    TOOLBOX_NAME  = "scithon";
+    TOOLBOX_TITLE = "Scithon";
 
   mprintf("Start " + TOOLBOX_TITLE + "\n");
 
@@ -35,6 +35,11 @@ function scithonlib = startModule()
   link(root_tlbx + "/src/c/libPythonInstance.dll");
   exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
   ilib_verbose(verboseMode);
+
+// find python installation
+// =============================================================================
+  mprintf("\tSearch Python: ");
+  _verifyPython();
 
 // load localization
   addlocalizationdomain(TOOLBOX_NAME, root_tlbx + "/locales");

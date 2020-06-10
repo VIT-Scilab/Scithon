@@ -3,6 +3,7 @@
 
 #include <Python.h>
 #include <direct.h>
+#include <stdbool.h>
 
 static PyObject *Main = NULL;
 

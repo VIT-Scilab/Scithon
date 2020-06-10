@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<scilablib name="scithonlib">
+  <macro name="_verifyPython" file="_verifyPython.bin" md5="0df55fc3599d547ba44c88fc6844abd3"/>
+</scilablib>

@@ -25,14 +25,17 @@ types::Function::ReturnValue sci_pyImport(types::typed_list& in, int _iRetCount,
         return types::Function::Error;
     }
 
+    if (!in[0] -> isString()) {
+        Scierror(999, "pyImport: Invalid type for arguement, string expected");
+    }
+
     wchar_t **winput = in[0] -> getAs<String>() -> get();
     char *input = new char[wcslen(*winput) + 1];
     sprintf(input, "%ws", *winput);
 
     PyObject *output = PyImport_ImportModule(input);
     if (output == NULL) {
-        Py_DECREF(output);
-        Scierror(999, "pyImport: Error while importing module '%s'", input);
+        Scierror(999, "pyImport: Error while importing module '%s', module might not be installed", input);
         return types::Function::Error;
     }
 

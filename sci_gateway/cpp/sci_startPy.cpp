@@ -6,6 +6,7 @@ extern "C" {
 #include "localization.h"
 #include "Scierror.h"    
 #include "PythonInstance.h"
+#include "sciprint.h"
 }
 
 types::Function::ReturnValue sci_startPy(types::typed_list& in, int _iRetCount, types::typed_list& out) {
@@ -22,7 +23,7 @@ types::Function::ReturnValue sci_startPy(types::typed_list& in, int _iRetCount, 
     if (Py_IsInitialized()) {
         Scierror(999, "startPy: An instance of python is already running! Did you forget to call quitPy?");
         return types::Function::Error;
-    } else {
+    } else {      
         Initialize();
         return types::Function::OK;
     }
