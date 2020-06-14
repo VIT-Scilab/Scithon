@@ -1,4 +1,4 @@
-function [] = _verifyPython() 
+function [] = _verifyPython(toolbox_path) 
     pythonVer = unix_g("python -V");
-    _checkPython(pythonVer);
+    _checkPython(pythonVer, toolbox_path);
 endfunction

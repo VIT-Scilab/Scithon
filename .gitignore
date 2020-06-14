@@ -5,6 +5,7 @@
 /loader.sce
 /cleaner.sce
 /macros/_verifyPython.bin
+/macros/lib
 /sci_gateway/cleaner_gateway.sce
 /sci_gateway/Release
 /sci_gateway/loader_gateway.sce

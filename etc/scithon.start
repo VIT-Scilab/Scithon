@@ -39,7 +39,7 @@ function scithonlib = startModule()
 // find python installation
 // =============================================================================
   mprintf("\tSearch Python: ");
-  _verifyPython();
+  _verifyPython(pathconvert(root_tlbx));
 
 // load localization
   addlocalizationdomain(TOOLBOX_NAME, root_tlbx + "/locales");

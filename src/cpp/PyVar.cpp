@@ -25,6 +25,7 @@ PyVar::PyVar(InternalType *_data) {
     } else {
         throw ast::InternalError("Incompatible type");
     }
+    Py_INCREF(data);
 }
 
 PyVar::~PyVar() {

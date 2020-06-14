@@ -12,8 +12,8 @@ extern "C" {
 using namespace types;
 
 types::Function::ReturnValue sci_checkPython(types::typed_list& in, int _iRetCount, types::typed_list& out) {
-    if (in.size() != 1) {
-        Scierror(999, "checkPython: Wrong number of input arguements, one expected");
+    if (in.size() !=2) {
+        Scierror(999, "checkPython: Wrong number of input arguements, two expected");
         return types::Function::Error;
     }
 
@@ -35,20 +35,13 @@ types::Function::ReturnValue sci_checkPython(types::typed_list& in, int _iRetCou
     } else {
         char* buffer;
         char* token;
-        std::string final_home;
-        // const char s[2] = "\\";
-        buffer = _getcwd(NULL, 0);
-        token = strtok(buffer, "\\");
-        while (token != NULL && strcmp(token, "sci_gateway") != 0) {
-            std::string temp(token);
-            final_home = final_home + temp + '\\';
-            token = strtok(NULL, "\\");
-        }
-        final_home += "python";
+        wchar_t **toolbox_path = in[1] ->getAs<String>() ->get();
+        std::wstring final_home(*toolbox_path);
+        final_home += L"python";
+        const wchar_t *final_path = final_home.c_str();
         char *path = new char[final_home.length() + 1];
-        strcpy(path, final_home.c_str());
+        sprintf(path,"%ws",final_path);
         size_t len = final_home.length();
-        //Py_SetPath(Py_DecodeLocale(final_home.c_str(), &len));
         Py_SetPythonHome(Py_DecodeLocale(path, &len));
         sciprint("No user installation of Python 3.8 found, consider installing it in order to use non standard modules.\n");
     }
