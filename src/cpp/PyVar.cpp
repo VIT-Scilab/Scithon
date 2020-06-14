@@ -36,7 +36,7 @@ std::wstring PyVar::getTypeStr() const {
 }
 
 std::wstring PyVar::getShortTypeStr() const {
-    return L"p";
+    return L"py";
 }
 
 PyVar* PyVar::clone() {

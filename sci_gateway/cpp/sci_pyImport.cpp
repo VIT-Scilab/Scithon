@@ -27,6 +27,7 @@ types::Function::ReturnValue sci_pyImport(types::typed_list& in, int _iRetCount,
 
     if (!in[0] -> isString()) {
         Scierror(999, "pyImport: Invalid type for arguement, string expected");
+        return types::Function::Error;
     }
 
     wchar_t **winput = in[0] -> getAs<String>() -> get();

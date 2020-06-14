@@ -10,7 +10,6 @@ class StdoutCatcher:\n\
         self.data += val\n\
 stdout_catcher = StdoutCatcher()\n\
 sys.stdout = stdout_catcher\n\
-sys.stderr = stdout_catcher\n\
     ";
     Py_Initialize();
     Main = PyImport_AddModule("__main__");

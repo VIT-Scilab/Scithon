@@ -13,7 +13,14 @@ function builder_gateway_cpp()
         "pyDict", "sci_pyDict", "cppsci";
         "pySet", "sci_pySet", "cppsci";
         "pyImport", "sci_pyImport", "cppsci";
+        "pyAdd", "sci_pyAdd", "cppsci";
+        "pyDiff", "sci_pyDiff", "cppsci";
+        "pyMul", "sci_pyMul", "cppsci";
+        "pyDiv", "sci_pyDiv", "cppsci";
         "pyEquals", "sci_pyEquals", "cppsci";
+        "pyGreater", "sci_pyGreater", "cppsci";
+        "pyGEquals", "sci_pyGEquals", "cppsci";
+        "pyLEquals", "sci_pyLEquals", "cppsci";
         "_checkPython", "sci_checkPython", "cppsci";
     ];
 
@@ -38,7 +45,14 @@ function builder_gateway_cpp()
         "sci_pyDict.cpp";
         "sci_pySet.cpp";
         "sci_pyImport.cpp";
+        "sci_pyAdd.cpp";
+        "sci_pyDiff.cpp";
+        "sci_pyMul.cpp";
+        "sci_pyDiv.cpp";
         "sci_pyEquals.cpp";
+        "sci_pyGreater.cpp";
+        "sci_pyGEquals.cpp";
+        "sci_pyLEquals.cpp";
         "sci_checkPython.cpp";
     ];
 

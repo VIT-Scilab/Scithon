@@ -3,7 +3,11 @@
 /codes
 /jar/
 /loader.sce
+/cleaner.sce
+/macros/_verifyPython.bin
 /sci_gateway/cleaner_gateway.sce
+/sci_gateway/Release
+/sci_gateway/loader_gateway.sce
 /sci_gateway/cpp/Makelib.mak
 /sci_gateway/cpp/Release
 /sci_gateway/cpp/cleaner.sce

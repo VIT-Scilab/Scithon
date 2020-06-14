@@ -6,7 +6,6 @@ extern "C" {
 #include "localization.h"
 #include "Scierror.h"    
 #include "PythonInstance.h"
-#include "sciprint.h"
 }
 
 types::Function::ReturnValue sci_startPy(types::typed_list& in, int _iRetCount, types::typed_list& out) {
