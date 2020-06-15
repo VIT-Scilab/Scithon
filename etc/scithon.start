@@ -58,5 +58,4 @@ function scithonlib = startModule()
 endfunction
 
 scithonlib = startModule();
-exec(get_absolute_file_path("scithon.start") + "\operators.sce", -1);
 clear startModule; // remove startModule on stack

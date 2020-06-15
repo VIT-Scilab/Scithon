@@ -31,9 +31,10 @@ types::Function::ReturnValue sci_pyGEquals(types::typed_list& in, int _iRetCount
     PyVar pIn2 = PyVar(in[1]);
 
     PyObject *result = PyObject_CallMethod(pIn1.get(), "__ge__", "(O)", pIn2.get());
-    if (PyBool_Check(result)) {
+    if (!PyBool_Check(result)) {
         Scierror(999, "pyGEquals: Incompatible types for operation");
-    } if (PyObject_IsTrue(result)) {
+        return types::Function::Error;
+    } else if (PyObject_IsTrue(result)) {
         out.push_back(new Bool(true));
     } else {
         out.push_back(new Bool(false));
