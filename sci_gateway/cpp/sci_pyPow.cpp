@@ -31,7 +31,10 @@ types::Function::ReturnValue sci_pyPow(types::typed_list& in, int _iRetCount, ty
     PyVar pIn2 = PyVar(in[1]);
 
     PyObject *result = PyObject_CallMethod(pIn1.get(), "__pow__", "(O)", pIn2.get());
-    if (result == NULL) {
+    if (result == Py_NotImplemented) {
+        result = PyObject_CallMethod(pIn2.get(), "__rpow__", "(O)", pIn1.get());
+    }
+    if (result == Py_NotImplemented) {
         Scierror(999, "pyPow: Incompatible types for operation");
         return Function::Error;
     } else {

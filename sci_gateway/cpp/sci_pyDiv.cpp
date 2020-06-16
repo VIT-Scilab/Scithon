@@ -31,7 +31,10 @@ types::Function::ReturnValue sci_pyDiv(types::typed_list& in, int _iRetCount, ty
     PyVar pIn2 = PyVar(in[1]);
 
     PyObject *result = PyObject_CallMethod(pIn1.get(), "__truediv__", "(O)", pIn2.get());
-    if (result == NULL) {
+    if (result == Py_NotImplemented) {
+        result = PyObject_CallMethod(pIn2.get(), "__rtruediv__", "(O)", pIn1.get());
+    }
+    if (result == Py_NotImplemented) {
         Scierror(999, "pyDiv: Incompatible types for operation");
         return Function::Error;
     } else {
