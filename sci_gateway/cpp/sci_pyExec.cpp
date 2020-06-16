@@ -8,6 +8,7 @@ extern "C" {
 #include "Scierror.h"
 #include "localization.h"
 #include "PythonInstance.h"
+#include "sciprint.h"
 }
 
 types::Function::ReturnValue sci_pyExec(types::typed_list& in, int _iRetCount,
@@ -19,8 +20,8 @@ types::Function::ReturnValue sci_pyExec(types::typed_list& in, int _iRetCount,
         return types::Function::Error;
     }
 
-    if (_iRetCount > 1) {
-        Scierror(999, "pyExec: Wrong number of output arguements, 1 expected");
+    if (_iRetCount > 0) {
+        Scierror(999, "pyExec: Wrong number of output arguements, none expected");
         return types::Function::Error;
     }
 
@@ -49,8 +50,9 @@ types::Function::ReturnValue sci_pyExec(types::typed_list& in, int _iRetCount,
     PyRun_SimpleFileEx(fp, input, true);
     char *output = new char[GetStdOutSize() + 1];
     GetStdOut(output);
-    types::String *pOut = new types::String(output);
-    out.push_back(pOut);
+    sciprint(output);
+    // types::String *pOut = new types::String(output);
+    // out.push_back(pOut);
     delete input;
     delete output;
     return types::Function::OK;

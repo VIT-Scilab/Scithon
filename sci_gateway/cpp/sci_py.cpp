@@ -8,6 +8,7 @@ extern "C" {
 #include "Scierror.h"
 #include "localization.h"
 #include "PythonInstance.h"
+#include "sciprint.h"
 }
 
 types::Function::ReturnValue sci_py(types::typed_list& in, int _iRetCount,
@@ -19,8 +20,8 @@ types::Function::ReturnValue sci_py(types::typed_list& in, int _iRetCount,
         return types::Function::Error;
     }
 
-    if (_iRetCount > 1) {
-        Scierror(999, "py: Wrong number of output arguements, 1 expected");
+    if (_iRetCount > 0) {
+        Scierror(999, "py: Wrong number of output arguements, none expected");
         return types::Function::Error;
     }
 
@@ -43,8 +44,9 @@ types::Function::ReturnValue sci_py(types::typed_list& in, int _iRetCount,
  
     char *output = new char[GetStdOutSize() + 1];
     GetStdOut(output);
-    types::String *pOut = new types::String(output);
-    out.push_back(pOut);
+    sciprint(output);
+    // types::String *pOut = new types::String(output);
+    // out.push_back(pOut);
     delete output;
     return types::Function::OK;
 }
