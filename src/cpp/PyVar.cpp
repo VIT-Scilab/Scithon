@@ -157,8 +157,10 @@ bool PyVar::invoke(types::typed_list & in, types::optional_list & opt, int _iRet
         }
 
         Py_DECREF(newTuple);
-        PyVar *pOut = new PyVar(ret);
-        out.push_back(pOut);
+        if (ret != Py_None) {
+            PyVar *pOut = new PyVar(ret);
+            out.push_back(pOut);
+        }        
         return true;
     } else if (in.size() == 2 && in[0] -> isString()) {
         wchar_t **wattr = in[0] -> getAs<String>() -> get();
