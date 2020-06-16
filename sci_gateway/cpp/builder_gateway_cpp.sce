@@ -18,6 +18,7 @@ function builder_gateway_cpp()
         "pyMul", "sci_pyMul", "cppsci";
         "pyDiv", "sci_pyDiv", "cppsci";
         "pyMod", "sci_pyMod", "cppsci";
+        "pyPow", "sci_pyPow", "cppsci";
         "pyEquals", "sci_pyEquals", "cppsci";
         "pyLesser", "sci_pyLesser", "cppsci";
         "pyGreater", "sci_pyGreater", "cppsci";
@@ -56,6 +57,14 @@ function builder_gateway_cpp()
         "%s_r_py", "sci_pyDiv", "cppsci";
         "%b_r_py", "sci_pyDiv", "cppsci";
         "%c_r_py", "sci_pyDiv", "cppsci";
+//Power
+        "%py_p_s", "sci_pyPow", "cppsci";
+        "%py_p_b", "sci_pyPow", "cppsci";
+        "%py_p_c", "sci_pyPow", "cppsci";
+        "%py_p_py", "sci_pyPow", "cppsci";
+        "%s_p_py", "sci_pyPow", "cppsci";
+        "%b_p_py", "sci_pyPow", "cppsci";
+        "%c_p_py", "sci_pyPow", "cppsci";
 //Equals
         "%py_o_s", "sci_pyEquals", "cppsci";
         "%py_o_b", "sci_pyEquals", "cppsci";
@@ -134,6 +143,7 @@ function builder_gateway_cpp()
         "sci_pyMul.cpp";
         "sci_pyDiv.cpp";
         "sci_pyMod.cpp";
+        "sci_pyPow.cpp";
         "sci_pyEquals.cpp";
         "sci_pyNEquals.cpp";
         "sci_pyLesser.cpp";
