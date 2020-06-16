@@ -133,6 +133,7 @@ function builder_gateway_cpp()
         "sci_pyDiff.cpp";
         "sci_pyMul.cpp";
         "sci_pyDiv.cpp";
+        "sci_pyMod.cpp";
         "sci_pyEquals.cpp";
         "sci_pyNEquals.cpp";
         "sci_pyLesser.cpp";
