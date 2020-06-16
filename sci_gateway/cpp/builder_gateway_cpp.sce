@@ -19,6 +19,7 @@ function builder_gateway_cpp()
         "pyDiv", "sci_pyDiv", "cppsci";
         "pyMod", "sci_pyMod", "cppsci";
         "pyPow", "sci_pyPow", "cppsci";
+        "pyXor", "sci_pyXor", "cppsci";
         "pyEquals", "sci_pyEquals", "cppsci";
         "pyLesser", "sci_pyLesser", "cppsci";
         "pyGreater", "sci_pyGreater", "cppsci";
@@ -144,6 +145,7 @@ function builder_gateway_cpp()
         "sci_pyDiv.cpp";
         "sci_pyMod.cpp";
         "sci_pyPow.cpp";
+        "sci_pyXor.cpp";
         "sci_pyEquals.cpp";
         "sci_pyNEquals.cpp";
         "sci_pyLesser.cpp";
