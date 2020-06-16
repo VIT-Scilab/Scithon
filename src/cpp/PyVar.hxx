@@ -4,7 +4,12 @@
 #include <Python.h>
 #include "user.hxx"
 #include "alltypes.hxx"
+
+extern "C" {
 #include "dynlib_scithon_src.h"
+#include "PythonInstance.h"  
+}
+
 
 
 namespace types{

@@ -11,6 +11,8 @@ void Initialize();
 void Finalize();
 long GetStdOutSize();
 void GetStdOut(char*);
+long GetStdErrSize();
+void GetStdErr(char*);
 PyObject* GetPyObject(char*);
 
 #endif

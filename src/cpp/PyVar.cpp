@@ -145,8 +145,14 @@ bool PyVar::invoke(types::typed_list & in, types::optional_list & opt, int _iRet
 
         PyObject *ret = PyObject_Call(data, newTuple, NULL);
         if (ret == NULL) {
+            PyErr_Print();
+            char *err = new char[GetStdErrSize() + 1];
+            GetStdErr(err);
+            std::string errMsg = "An error occured while calling the function\n";
+            errMsg.append(err);
+            throw ast::InternalError(errMsg);
             PyErr_Clear();
-            throw ast::InternalError("An error occured while calling the function");
+            delete err;
             return true;
         }
 

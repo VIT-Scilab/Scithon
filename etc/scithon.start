@@ -31,8 +31,8 @@ function scithonlib = startModule()
   ilib_verbose(0);
   mprintf("\tLoad gateways\n");
   link(root_tlbx + "/python/python38.dll");
-  link(root_tlbx + "/src/cpp/libPyVar.dll");
   link(root_tlbx + "/src/c/libPythonInstance.dll");
+  link(root_tlbx + "/src/cpp/libPyVar.dll");
   exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
   ilib_verbose(verboseMode);
 
