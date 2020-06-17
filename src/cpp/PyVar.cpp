@@ -1,25 +1,82 @@
 #include "PyVar.hxx"
 
 namespace types{
+PyObject* makeListFromSciList(InternalType *_data) {
+    PyObject *newList = PyList_New(0);
+    List *vals = _data -> getAs<List>();
+    for (size_t i = 0; i < vals -> getSize(); i++) {
+        PyVar item = PyVar(vals -> get(i));
+        PyList_Append(newList, item.get());
+    }
+    return newList;
+}
+
+PyObject* makeListFromBool(InternalType *_data) {
+    PyObject *newList = PyList_New(0);
+    int *vals = _data -> getAs<Bool>() -> get();
+    for (size_t i = 0; i < _data -> getAs<Bool>() -> getSize(); i++) {
+        PyList_Append(newList, PyBool_FromLong(vals[i]));
+    }
+    return newList;
+}
+
+PyObject* makeListFromDouble(InternalType *_data) {
+    PyObject *newList = PyList_New(0);
+    double *vals = _data -> getAs<Double>() -> get();
+    for (size_t i = 0; i < _data -> getAs<Bool>() -> getSize(); i++) {
+        if (int(vals[i]) == vals[i]) {
+            PyList_Append(newList, PyLong_FromDouble(vals[i]));
+        } else {
+            PyList_Append(newList, PyFloat_FromDouble(vals[i]));
+        }
+    }
+    return newList;
+}
+
+PyObject* makeListFromString(InternalType *_data) {
+    PyObject *newList = PyList_New(0);
+    wchar_t **vals = _data -> getAs<String>() -> get();
+    for (size_t i = 0; i < _data -> getAs<String>() -> getSize(); i++) {
+        PyList_Append(newList, PyUnicode_FromWideChar(vals[i], wcslen(vals[i])));
+    }
+    return newList;
+}
+
 PyVar::PyVar(PyObject *_data) {
     data = _data;
     Py_INCREF(data);
 }
 
 PyVar::PyVar(InternalType *_data) {
-    if (_data -> isBool() && _data -> getAs<Bool>() -> getSize() == 1) {
-        int *val = _data -> getAs<Bool>() -> get();
-        data = PyBool_FromLong(*val);
-    } else if ((_data -> isDouble() || _data -> isFloat() || _data -> isInt()) && _data -> getAs<Double>() -> getSize() == 1) {
-        double *val = _data -> getAs<Double>() -> get();
-        if (int(*val) == *val) {
-            data = PyLong_FromDouble(*val);
+    if (_data -> isBool() && _data -> getAs<Bool>() -> getRows() == 1) {
+        if (_data -> getAs<Bool>() -> getSize() == 1) {
+            int *val = _data -> getAs<Bool>() -> get();
+            data = PyBool_FromLong(*val);
         } else {
-            data = PyFloat_FromDouble(*val);
+            data = makeListFromBool(_data);
         }
-    } else if (_data -> isString() && _data -> getAs<String>() -> getSize() == 1) {
-        wchar_t **val = _data -> getAs<String>() -> get();
-        data = PyUnicode_FromWideChar(*val, wcslen(*val));
+        
+    } else if ((_data -> isDouble() || _data -> isFloat() || _data -> isInt()) && _data -> getAs<Double>() -> getRows() == 1) {
+        if (_data -> getAs<Double>() -> getSize() == 1) {
+            double *val = _data -> getAs<Double>() -> get();
+            if (int(*val) == *val) {
+                data = PyLong_FromDouble(*val);
+            } else {
+                data = PyFloat_FromDouble(*val);
+            }
+        } else {
+            data = makeListFromDouble(_data);
+        }
+        
+    } else if (_data -> isString() && _data -> getAs<String>() -> getRows() == 1) {
+        if (_data -> getAs<String>() -> getSize() == 1) {
+            wchar_t **val = _data -> getAs<String>() -> get();
+            data = PyUnicode_FromWideChar(*val, wcslen(*val));
+        } else {
+            data = makeListFromString(_data);
+        }
+    } else if (_data -> isList()) {
+        data = makeListFromSciList(_data);    
     } else if (_data -> getTypeStr() == L"Python Variable") {
         data = _data -> getAs<PyVar>() -> get();
     } else {
@@ -180,5 +237,6 @@ bool PyVar::invoke(types::typed_list & in, types::optional_list & opt, int _iRet
     throw ast::InternalError("Python variable is neither callable nor a sequence or mapped object");
 }
 }
+
 
 
