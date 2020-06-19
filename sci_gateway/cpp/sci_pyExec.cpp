@@ -39,7 +39,8 @@ types::Function::ReturnValue sci_pyExec(types::typed_list& in, int _iRetCount,
     types::String *pIn = in[0]->getAs<types::String>();
     wchar_t **winput = pIn -> get();
     char *input = new char[wcslen(*winput) + 1];
-    sprintf(input, "%ws", *winput);
+    //sprintf(input, "%ws", *winput);
+    wcstombs(input, *winput, wcslen(*winput) + 1);
     FILE *fp = fopen(input, "rb");
     if (fp == NULL) {
         delete input;
@@ -48,6 +49,17 @@ types::Function::ReturnValue sci_pyExec(types::typed_list& in, int _iRetCount,
     }
     
     PyRun_SimpleFileEx(fp, input, true);
+
+    int errSize = GetStdErrSize();
+    if (errSize) {
+        char *err = new char[errSize + 1];
+        GetStdErr(err);
+        std::string errMsg = "Encountered an error while running the code:\n";
+        errMsg.append(err);
+        errMsg.append("\n\nOutput:");
+        sciprint(errMsg.c_str());
+    } 
+
     char *output = new char[GetStdOutSize() + 1];
     GetStdOut(output);
     sciprint(output);

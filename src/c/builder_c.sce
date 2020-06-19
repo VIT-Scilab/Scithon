@@ -1,12 +1,17 @@
 function builder_c()
     src_c = get_absolute_file_path("builder_c.sce");
-    cflags = ilib_include_flag(src_c);
-    cflags = cflags + " " + ilib_include_flag(src_c + "../../python/include");
-    ldflags = fullfile(src_c + "../../python", "libs", "python38.lib");
+    CFLAGS = ilib_include_flag(src_c);
+    if (getos() == "Windows") then
+        CFLAGS = CFLAGS + " " + ilib_include_flag(src_c + "../../thirdparty/Windows/include");
+        LDFLAGS = fullfile(src_c + "../../thirdparty/Windows", "libs", "python38.lib");
+    else
+        CFLAGS = CFLAGS + " " + ilib_include_flag(src_c + "../../thirdparty/Linux/include");
+        LDFLAGS = "-L" + fullfile(src_c + "../../thirdparty/Linux", "lib", "config-3.8-x86_64-linux-gnu") + " -lpython3.8";
+    end
     names = ["PythonInstance"];
     files = ["PythonInstance.c"];
 
-    tbx_build_src(names, files, "c", src_c, "", ldflags, cflags);
+    tbx_build_src(names, files, "c", src_c, "", LDFLAGS, CFLAGS);
 endfunction
 
 builder_c();

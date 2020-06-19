@@ -120,7 +120,8 @@ PyObject* PyVar::get() {
 bool PyVar::extract(const std::wstring& name, InternalType *& out) {
     const wchar_t *winput = name.c_str();
     char *input = new char[wcslen(winput) + 1];
-    sprintf(input, "%ws", winput);
+    //sprintf(input, "%ws", winput);
+    wcstombs(input, winput, wcslen(winput) + 1);
     if (!PyObject_HasAttrString(data, input)) {
         std::string err = "Python variable has no attribute '";
         err.append(input);
@@ -222,7 +223,8 @@ bool PyVar::invoke(types::typed_list & in, types::optional_list & opt, int _iRet
     } else if (in.size() == 2 && in[0] -> isString()) {
         wchar_t **wattr = in[0] -> getAs<String>() -> get();
         char *attr = new char[wcslen(*wattr) + 1];
-        sprintf(attr, "%ws", *wattr);
+        //sprintf(attr, "%ws", *wattr);
+        wcstombs(attr, *wattr, wcslen(*wattr) + 1);
         if (!PyObject_HasAttrString(data, attr)) {
             std::string err = "Python variable has no attribute '";
             err.append(attr);

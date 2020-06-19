@@ -30,9 +30,14 @@ function scithonlib = startModule()
   verboseMode = ilib_verbose();
   ilib_verbose(0);
   mprintf("\tLoad gateways\n");
-  link(root_tlbx + "/python/python38.dll");
-  link(root_tlbx + "/src/c/libPythonInstance.dll");
-  link(root_tlbx + "/src/cpp/libPyVar.dll");
+  os = getos();
+  if (os == "Windows") then
+    link(root_tlbx + "/thirdparty/Windows/python38.dll");
+  else
+    link(root_tlbx + "/thirdparty/Linux/lib/config-3.8-x86_64-linux-gnu/libpython3.8.so");
+  end
+  link(root_tlbx + "/src/c/libPythonInstance" + getdynlibext());
+  link(root_tlbx + "/src/cpp/libPyVar" + getdynlibext());
   exec(pathconvert(root_tlbx+"/sci_gateway/loader_gateway.sce",%f));
   ilib_verbose(verboseMode);
 

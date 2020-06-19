@@ -1,6 +1,5 @@
 function builder_gateway_cpp()
     gwPath = get_absolute_file_path("builder_gateway_cpp.sce");
-    origPath = pwd();
     gw_table = [
 //                 Functions
         "startPy", "sci_startPy", "cppsci";
@@ -121,12 +120,20 @@ function builder_gateway_cpp()
     CFLAGS = ilib_include_flag(gwPath);
     CFLAGS = ilib_include_flag(fullpath(gwPath + "../../src/c"));
     CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(gwPath + "../../src/cpp"));
-    CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(gwPath + "../../python/include"));
-    CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(SCI + "/modules/ast/includes"));
 
-    LDFLAGS = fullpath(gwPath + "../../src/c/libPythonInstance.lib");
-    LDFLAGS = LDFLAGS + " " + fullpath(gwPath + "../../src/cpp/libPyVar.lib");
-    LDFLAGS = LDFLAGS + " " + fullpath(gwPath + "../../python/libs/python38.lib");
+    if (getos() == "Windows") then 
+        CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(gwPath + "../../thirdparty/Windows/include"));
+        CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(SCI + "/modules/ast/includes"));
+
+        LDFLAGS = fullpath(gwPath + "../../src/c/libPythonInstance.lib");
+        LDFLAGS = LDFLAGS + " " + fullpath(gwPath + "../../src/cpp/libPyVar.lib");
+        LDFLAGS = LDFLAGS + " " + fullpath(gwPath + "../../thirdparty/Windows/libs/python38.lib");
+    else
+        CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(gwPath + "../../thirdparty/Linux/include"));
+        CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(SCI + "/../../include/scilab"));
+
+        LDFLAGS = ""
+    end
 
     gw_src_cpp = [
         "sci_startPy.cpp";

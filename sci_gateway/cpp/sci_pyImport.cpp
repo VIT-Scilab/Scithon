@@ -32,7 +32,8 @@ types::Function::ReturnValue sci_pyImport(types::typed_list& in, int _iRetCount,
 
     wchar_t **winput = in[0] -> getAs<String>() -> get();
     char *input = new char[wcslen(*winput) + 1];
-    sprintf(input, "%ws", *winput);
+    //sprintf(input, "%ws", *winput);
+    wcstombs(input, *winput, wcslen(*winput) + 1);
 
     PyObject *output = PyImport_ImportModule(input);
     if (output == NULL) {
