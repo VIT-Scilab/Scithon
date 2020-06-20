@@ -11,6 +11,7 @@ function builder_gateway_cpp()
         "pyTuple", "sci_pyTuple", "cppsci";
         "pyDict", "sci_pyDict", "cppsci";
         "pySet", "sci_pySet", "cppsci";
+        "py2sci", "sci_py2sci", "cppsci";
         "pyImport", "sci_pyImport", "cppsci";
         "pyAdd", "sci_pyAdd", "cppsci";
         "pyDiff", "sci_pyDiff", "cppsci";
@@ -160,6 +161,7 @@ function builder_gateway_cpp()
         "sci_pyLEquals.cpp";
         "sci_pyGEquals.cpp";
         "sci_checkPython.cpp";
+        "sci_py2sci.cpp";
     ];
 
     tbx_build_gateway("scithon_cpp", gw_table, gw_src_cpp, gwPath, ["../../src/c/libPythonInstance"], LDFLAGS, CFLAGS);

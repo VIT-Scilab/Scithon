@@ -10,8 +10,6 @@ extern "C" {
 #include "PythonInstance.h"  
 }
 
-
-
 namespace types{
 class SCITHON_SRC_IMPEXP PyVar : public UserType {
 public:
@@ -44,6 +42,8 @@ public:
     }
 
     bool invoke(types::typed_list & in, types::optional_list & opt, int _iRetCount, types::typed_list & out, const ast::Exp & e) override;
+
+    InternalType* sciParse();
 };
 }
 

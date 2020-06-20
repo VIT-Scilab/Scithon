@@ -238,6 +238,42 @@ bool PyVar::invoke(types::typed_list & in, types::optional_list & opt, int _iRet
     }
     throw ast::InternalError("Python variable is neither callable nor a sequence or mapped object");
 }
+
+InternalType* PyVar::sciParse() {
+    if (PyBool_Check(data)) {
+        return new Bool(PyObject_IsTrue(data));
+    } else if (PyFloat_Check(data)) {
+        return new Double(PyFloat_AsDouble(data));
+    } else if (PyLong_Check(data)) {
+        return new Double(PyLong_AsDouble(data));
+    } else if (PyUnicode_Check(data)) {
+        return new String(PyUnicode_AsUTF8(data));
+    } else if (PySequence_Check(data)) {
+        int size = PySequence_Size(data);
+        if (size == -1) {
+            throw ast::InternalError("Error while converting the sequence object to list");
+        }
+        List *list = new List();
+        for (size_t i = 0; i < size; i++) {
+            PyVar li = PyVar(PySequence_GetItem(data, i));
+            PyObject *comp = PyObject_CallMethod(data, "__eq__", "(O)", li.get());
+            if ((comp != Py_NotImplemented && PyObject_IsTrue(comp)) || PyErr_Occurred() != NULL) {
+                PyErr_Clear();
+                throw ast::InternalError("Recursive data encountered in python sequence object");
+            }
+            list -> append(li.sciParse());
+        }
+        return list;
+    } else if (PyDict_Check(data)) {
+        List *list = new List();
+        PyVar keys = PyVar(PyDict_Keys(data));
+        PyVar vals = PyVar(PyDict_Values(data));
+        list -> append(keys.sciParse());
+        list -> append(vals.sciParse());
+        return list;
+    }
+    throw ast::InternalError("No compatible conversion found for the python data");
+}
 }
 
 
