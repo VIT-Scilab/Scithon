@@ -13,21 +13,49 @@ PyObject* makeListFromSciList(InternalType *_data) {
 
 PyObject* makeListFromBool(InternalType *_data) {
     PyObject *newList = PyList_New(0);
-    int *vals = _data -> getAs<Bool>() -> get();
-    for (size_t i = 0; i < _data -> getAs<Bool>() -> getSize(); i++) {
-        PyList_Append(newList, PyBool_FromLong(vals[i]));
+    Bool *vals = _data -> getAs<Bool>();
+    int nrows = _data -> getAs<Bool>() -> getRows();
+    if (nrows == 1) {
+        for (size_t i = 0; i < vals -> getSize(); i++) {
+            PyList_Append(newList, PyBool_FromLong(vals -> get(i)));
+        }   
+    } else {
+        for (size_t i = 0; i < nrows; i++) {
+            PyObject *subList = PyList_New(0);
+            for (size_t j = 0; j < vals -> getCols(); j++) {
+                PyList_Append(subList, PyBool_FromLong(vals -> get(i, j)));
+            }
+            PyList_Append(newList, subList);
+        }
     }
     return newList;
 }
 
 PyObject* makeListFromDouble(InternalType *_data) {
     PyObject *newList = PyList_New(0);
-    double *vals = _data -> getAs<Double>() -> get();
-    for (size_t i = 0; i < _data -> getAs<Bool>() -> getSize(); i++) {
-        if (int(vals[i]) == vals[i]) {
-            PyList_Append(newList, PyLong_FromDouble(vals[i]));
-        } else {
-            PyList_Append(newList, PyFloat_FromDouble(vals[i]));
+    Double *vals = _data -> getAs<Double>();
+    int nrows = _data -> getAs<Double>() -> getRows();
+    if (nrows == 1) {
+        for (size_t i = 0; i < vals -> getSize(); i++) {
+            double val = vals -> get(i);
+            if (int(val) == val) {
+                 PyList_Append(newList, PyLong_FromDouble(val));
+            } else {
+                PyList_Append(newList, PyFloat_FromDouble(val));
+            }
+        }   
+    } else {
+        for (size_t i = 0; i < nrows; i++) {
+            PyObject *subList = PyList_New(0);
+            for (size_t j = 0; j < vals -> getCols(); j++) {
+                double val = vals -> get(i, j);
+                if (int(val) == val) {
+                    PyList_Append(subList, PyLong_FromDouble(val));
+                } else {
+                    PyList_Append(subList, PyFloat_FromDouble(val));
+                }
+            }
+            PyList_Append(newList, subList);
         }
     }
     return newList;
@@ -35,9 +63,20 @@ PyObject* makeListFromDouble(InternalType *_data) {
 
 PyObject* makeListFromString(InternalType *_data) {
     PyObject *newList = PyList_New(0);
-    wchar_t **vals = _data -> getAs<String>() -> get();
-    for (size_t i = 0; i < _data -> getAs<String>() -> getSize(); i++) {
-        PyList_Append(newList, PyUnicode_FromWideChar(vals[i], wcslen(vals[i])));
+    String *vals = _data -> getAs<String>();
+    int nrows = _data -> getAs<Double>() -> getRows();
+    if (nrows == 1) {
+        for (size_t i = 0; i < vals -> getSize(); i++) {
+            PyList_Append(newList, PyUnicode_FromWideChar(vals -> get(i), wcslen(vals -> get(i))));
+        }   
+    } else {
+        for (size_t i = 0; i < nrows; i++) {
+            PyObject *subList = PyList_New(0);
+            for (size_t j = 0; j < vals -> getCols(); j++) {
+                PyList_Append(subList, PyUnicode_FromWideChar(vals -> get(i, j),  wcslen(vals -> get(i, j))));
+            }
+            PyList_Append(newList, subList);
+        }
     }
     return newList;
 }
@@ -48,7 +87,7 @@ PyVar::PyVar(PyObject *_data) {
 }
 
 PyVar::PyVar(InternalType *_data) {
-    if (_data -> isBool() && _data -> getAs<Bool>() -> getRows() == 1) {
+    if (_data -> isBool()) {
         if (_data -> getAs<Bool>() -> getSize() == 1) {
             int *val = _data -> getAs<Bool>() -> get();
             data = PyBool_FromLong(*val);
@@ -56,7 +95,7 @@ PyVar::PyVar(InternalType *_data) {
             data = makeListFromBool(_data);
         }
         
-    } else if ((_data -> isDouble() || _data -> isFloat() || _data -> isInt()) && _data -> getAs<Double>() -> getRows() == 1) {
+    } else if (_data -> isDouble() || _data -> isFloat() || _data -> isInt()) {
         if (_data -> getAs<Double>() -> getSize() == 1) {
             double *val = _data -> getAs<Double>() -> get();
             if (int(*val) == *val) {
@@ -68,7 +107,7 @@ PyVar::PyVar(InternalType *_data) {
             data = makeListFromDouble(_data);
         }
         
-    } else if (_data -> isString() && _data -> getAs<String>() -> getRows() == 1) {
+    } else if (_data -> isString()) {
         if (_data -> getAs<String>() -> getSize() == 1) {
             wchar_t **val = _data -> getAs<String>() -> get();
             data = PyUnicode_FromWideChar(*val, wcslen(*val));
