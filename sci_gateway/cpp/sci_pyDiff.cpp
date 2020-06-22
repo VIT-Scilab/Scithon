@@ -37,6 +37,14 @@ types::Function::ReturnValue sci_pyDiff(types::typed_list& in, int _iRetCount, t
     if (result == Py_NotImplemented) {
         Scierror(999, "pyDiff: Incompatible types for operation");
         return Function::Error;
+    } else if (PyErr_Occurred() != NULL) {
+        PyErr_Print();
+        char *err = new char[GetStdErrSize() + 1];
+        GetStdErr(err);
+        Scierror(999, "An error occured while performing the operation\n%s", err);
+        PyErr_Clear();
+        delete err;
+        return Function::Error;
     } else {
         PyVar *output = new PyVar(result);
         out.push_back(output);

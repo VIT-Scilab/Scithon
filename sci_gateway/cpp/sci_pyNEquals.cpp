@@ -34,6 +34,7 @@ types::Function::ReturnValue sci_pyNEquals(types::typed_list& in, int _iRetCount
     if (PyBool_Check(result) && PyObject_IsTrue(result)) {
         out.push_back(new Bool(true));
     } else {
+        PyErr_Clear();
         out.push_back(new Bool(false));
     }
 

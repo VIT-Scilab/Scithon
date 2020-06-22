@@ -32,6 +32,7 @@ types::Function::ReturnValue sci_pyLesser(types::typed_list& in, int _iRetCount,
 
     PyObject *result = PyObject_CallMethod(pIn1.get(), "__lt__", "(O)", pIn2.get());
     if (!PyBool_Check(result)) {
+        PyErr_Clear();
         Scierror(999, "pyLesser: Incompatible types for operation");
         return types::Function::Error;
     } else if (PyObject_IsTrue(result)) {
