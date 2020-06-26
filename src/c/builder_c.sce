@@ -6,7 +6,7 @@ function builder_c()
         LDFLAGS = fullfile(src_c + "../../thirdparty/Windows", "libs", "python38.lib");
     else
         CFLAGS = CFLAGS + " " + ilib_include_flag(src_c + "../../thirdparty/Linux/include");
-        LDFLAGS = "-L" + fullfile(src_c + "../../thirdparty/Linux", "lib", "config-3.8-x86_64-linux-gnu") + " -lpython3.8";
+        LDFLAGS = "-L" + fullfile(src_c + "../../thirdparty/Linux", "lib", "python3.8", "config-3.8-x86_64-linux-gnu") + " -lpython3.8";
     end
     names = ["PythonInstance"];
     files = ["PythonInstance.c"];

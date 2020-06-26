@@ -34,7 +34,7 @@ function scithonlib = startModule()
   if (os == "Windows") then
     link(root_tlbx + "/thirdparty/Windows/python38.dll");
   else
-    link(root_tlbx + "/thirdparty/Linux/lib/config-3.8-x86_64-linux-gnu/libpython3.8.so");
+    link(root_tlbx + "/thirdparty/Linux/lib/python3.8/config-3.8-x86_64-linux-gnu/libpython3.8.so.1.0");
   end
   link(root_tlbx + "/src/c/libPythonInstance" + getdynlibext());
   link(root_tlbx + "/src/cpp/libPyVar" + getdynlibext());
