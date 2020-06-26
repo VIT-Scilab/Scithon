@@ -11,7 +11,7 @@ function scithonlib = startModule()
   mprintf("Start " + TOOLBOX_TITLE + "\n");
 
   if isdef("scithonlib") then
-    warning("SciPy library is already loaded");
+    warning("Scithon library is already loaded");
     return;
   end
 
