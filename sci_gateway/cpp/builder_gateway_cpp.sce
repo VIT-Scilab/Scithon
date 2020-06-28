@@ -23,8 +23,8 @@ function builder_gateway_cpp()
         "pyEquals", "sci_pyEquals", "cppsci";
         "pyLesser", "sci_pyLesser", "cppsci";
         "pyGreater", "sci_pyGreater", "cppsci";
-        "pyLEquals", "sci_pyGEquals", "cppsci";
-        "pyGEquals", "sci_pyLEquals", "cppsci";
+        "pyLEquals", "sci_pyLEquals", "cppsci";
+        "pyGEquals", "sci_pyGEquals", "cppsci";
 //                  Operators
 //Addition
         "%py_a_s", "sci_pyAdd", "cppsci";
