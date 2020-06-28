@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="pyDict" xml:lang="en"
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="pyLEquals" xml:lang="en"
           xmlns="http://docbook.org/ns/docbook"
           xmlns:db="http://docbook.org/ns/docbook">
   <refnamediv>
-    <refname>pyDict</refname>
-    <refpurpose>Creates a python dictionary. </refpurpose>
+    <refname>pyLEquals</refname>
+    <refpurpose>Checks if value 1 is lesser than or equal to value 2. </refpurpose>
   </refnamediv>
   <refsynopsisdiv>
     <title>Syntax</title>
-    <synopsis>pyDict(key1, val1, key2, val2…)</synopsis>
+    <synopsis>pyLEquals(arg1, arg2)</synopsis>
   </refsynopsisdiv>
   <refsection>
     <title>Arguments</title>
     <variablelist>
       <varlistentry>
-        <term>key1</term>
+        <term>arg1</term>
         <listitem>
           <para>
-            1st Key Value
+            Value to compared.
           </para>
         </listitem>
       </varlistentry>
     </variablelist>
     <variablelist>
       <varlistentry>
-        <term>val1</term>
+        <term>arg2</term>
         <listitem>
           <para>
-            Corresponding value for key referred as key1.
+            Value to be compared with.
           </para>
         </listitem>
       </varlistentry>
@@ -36,16 +36,16 @@
   <refsynopsisdiv>
     <title>Description</title>
     <para>
-      Creates and returns a python dictionary containing
-the key-value pairs passed. Arguments can be of type int, double, string, bool or python
-variable. Python variables passed for keys must be hashable.
+      Checks if the first argument is lesser than or equal to the second argument and returns the result; equivalent to arg1 &lt;= arg2. 
+      Arguments can be of type int, double, string, bool or python variable.
     </para>
   </refsynopsisdiv> 
-    <refsynopsisdiv>
+  <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
-    Y = pyDict("hello", "world")
-    disp(Y("hello"))
+    py("a = 5")
+    var = pyGet("a")
+    pyLEquals(var,3)
  ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

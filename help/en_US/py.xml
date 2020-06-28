@@ -26,16 +26,14 @@
   <refsynopsisdiv>
     <title>Description</title>
     <para>
-      Executes simple python statements and returns the output. Variables declared here can be accessed through pyGet().
+      Creates and returns a python list containing the arguments
+passed. Arguments can be of type int, double, string, bool or python variable.
     </para>
   </refsynopsisdiv> 
   <refsynopsisdiv>
     <title>Example</title>
-    <synopsis>py(&quot;a = 50; b = a**2;print(b)&quot;)</synopsis>
-    <para>The output for the above code is</para>
-    <synopsis>ans  =
-
-  &quot;2500
-&quot;</synopsis>
+    <programlisting role="example"><![CDATA[
+    py("a = 50; b = a**2;print(b)")
+     ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

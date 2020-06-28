@@ -54,19 +54,10 @@ Arguments can be of type int, double, string, bool or python variable.
   </refsynopsisdiv> 
   <refsynopsisdiv>
     <title>Example</title>
-    <synopsis>--&#62; pySet(1,2,3,4,1,2)
- ans  =
-
-{1, 2, 3, 4}
-</synopsis>
-<synopsis>--&#62; L = pyList(1,2,3,4,1,2)
- L  = 
-
-[1, 2, 3, 4, 1, 2]
---&#62; S = pySet(L)
- S  = 
-
-{1, 2, 3, 4}
-</synopsis>
+    <programlisting role="example"><![CDATA[
+    pySet(1,2,3,4,1,2)
+    L = pyList(1,2,3,4,1,2)
+    S = pySet(L)
+ ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

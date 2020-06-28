@@ -1,0 +1,73 @@
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>py2sci</title>
+    <style type="text/css" media="all">
+      @import url("scilab_code.css");
+      @import url("xml_code.css");
+      @import url("c_code.css");
+      @import url("style.css");
+    </style>
+  </head>
+  <body>
+    <div class="manualnavbar">
+    <table width="100%"><tr>
+      <td width="30%">
+    	<span class="previous"><a href="py.html">&lt;&lt; py</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_bb852a4ca90c4a33e1030c058272b844.html">Scithon</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="pyAdd.html">pyAdd &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+
+
+
+    <span class="path" dir="ltr"><a href="index.html">Scithon</a> &gt;&gt; <a href="section_bb852a4ca90c4a33e1030c058272b844.html">Scithon</a> &gt; py2sci</span>
+
+    <br /><br />
+    <div class="refnamediv"><h1 class="refname">py2sci</h1>
+    <p class="refpurpose">Converts python variable into scilab variable.</p></div>
+  <div class="refsynopsisdiv"><h3 class="title">Syntax</h3>
+    <div class="synopsis"><pre><span class="functionid">py2sci</span><span class="default">(</span><span class="default">PyVar</span> <span class="default">arg</span><span class="default">)</span></pre></div></div>
+  <div class="refsection"><h3 class="title">Arguments</h3>
+    <dl><dt><span class="term">arg</span>
+        <dd><p class="para">Python variable to be converted to scilab variable.</p></dd></dt></dl></div>
+  <div class="refsynopsisdiv"><h3 class="title">Description</h3>
+    <p class="para">Converts a python variable to its Scilab equivalent
+if possible and returns it. Python numbers and floats are converted to double. 
+Python lists, sets, tuples and other sequence objects are converted to scilab lists. 
+Python dictionaries are converted to a list containing two lists, former containing the keys and the latter containing the values.</p></div> 
+  <div class="refsynopsisdiv"><h3 class="title">Example</h3>
+    <div class="programlisting"><table border="0" width="100%"><tr><td width="98%"><pre class="scilabcode"><span class="scilabid">py</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">a = 5</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span>
+    <span class="scilabid">var</span> <span class="scilaboperator">=</span> <span class="scilabid">pyGet</span><span class="scilabopenclose">(</span><span class="scilabstring">&#0034;</span><span class="scilabstring">a</span><span class="scilabstring">&#0034;</span><span class="scilabopenclose">)</span>
+    <span class="scilabid">sci_var</span> <span class="scilaboperator">=</span> <span class="scilabid">py2sci</span><span class="scilabopenclose">(</span><span class="scilabid">var</span><span class="scilabopenclose">)</span></pre></td><td valign="top"><a href="scilab://scilab.execexample/"><img src="ScilabExecute.png" border="0"/></a></td><td valign="top"><a href="scilab://scilab.editexample/"><img src="ScilabEdit.png" border="0"/></a></td><td></td></tr></table></div></div>
+    <br />
+
+    <div class="manualnavbar">
+    <table width="100%">
+    <tr><td colspan="3" class="next"><a href="http://bugzilla.scilab.org/enter_bug.cgi?product=Scilab%20software&component=Documentation%20pages" class="ulink">Report an issue</a></td></tr>
+<tr>
+      <td width="30%">
+    	<span class="previous"><a href="py.html">&lt;&lt; py</a></span>
+
+      </td>
+      <td width="40%" class="center">
+      	<span class="top"><a href="section_bb852a4ca90c4a33e1030c058272b844.html">Scithon</a></span>
+
+      </td>
+      <td width="30%" class="next">
+      	<span class="next"><a href="pyAdd.html">pyAdd &gt;&gt;</a></span>
+
+      </td>
+    </tr></table>
+      <hr />
+    </div>
+  </body>
+</html>

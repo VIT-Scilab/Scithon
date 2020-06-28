@@ -42,16 +42,10 @@ passed. Arguments can be of type int, double, string, bool or python variable.
   </refsynopsisdiv> 
   <refsynopsisdiv>
     <title>Example</title>
-    <synopsis>--&#62; X = pyList(1,2,&quot;Hello&quot;,3)
- X  = 
-
-[1, 2, &apos;Hello&apos;, 3]
---&#62; disp(X(0))
-
-1
---&#62; disp(X(2))
-
-&apos;Hello&apos;
-</synopsis>
+    <programlisting role="example"><![CDATA[
+    X = pyList(1,2,"Hello",3)
+    disp(X(0))
+    disp(X(2))
+ ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

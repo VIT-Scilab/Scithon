@@ -13,21 +13,16 @@
   <refsynopsisdiv>
     <title>Description</title>
     <para>
-      Stops the python interpreter. Once called, startPy
-must again be called before using any other functions offered by SciPy.
+      Stops the python interpreter, erasing all the information. Once called, startPy
+must again be called before using any other functions offered by Scithon.
     </para>
   </refsynopsisdiv> 
   <refsynopsisdiv>
     <title>Example</title>
-    <synopsis>--&#62; startPy
-
---&#62; py(&quot;a=5;print(a);&quot;)
- ans  =
-
-  &quot;5
-&quot;
-
---&#62; quitPy
-</synopsis>
+    <programlisting role="example"><![CDATA[
+    startPy
+    py("a=5;print(a);")
+    quitPy
+ ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

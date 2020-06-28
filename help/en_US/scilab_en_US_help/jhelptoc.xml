@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN" "http://java.sun.com/products/javahelp/toc_1_0.dtd">
 <toc version="1.0">
-<tocitem target="index" text="scithon">
-<tocitem target="section_08a6625d402ccd331f716bf0c66eb71a" text="scithon">
+<tocitem target="index" text="Scithon">
+<tocitem target="section_bb852a4ca90c4a33e1030c058272b844" text="Scithon">
 <tocitem target="py" text="py"/>
+<tocitem target="py2sci" text="py2sci"/>
+<tocitem target="pyAdd" text="pyAdd"/>
 <tocitem target="pyDict" text="pyDict"/>
+<tocitem target="pyDiff" text="pyDiff"/>
+<tocitem target="pyDiv" text="pyDiv"/>
 <tocitem target="pyEquals" text="pyEquals"/>
 <tocitem target="pyExec" text="pyExec"/>
+<tocitem target="pyGEquals" text="pyGEquals"/>
 <tocitem target="pyGet" text="pyGet"/>
+<tocitem target="pyGreater" text="pyGreater"/>
 <tocitem target="pyImport" text="pyImport"/>
+<tocitem target="pyLEquals" text="pyLEquals"/>
+<tocitem target="pyLesser" text="pyLesser"/>
 <tocitem target="pyList" text="pyList"/>
+<tocitem target="pyMod" text="pyMod"/>
+<tocitem target="pyMul" text="pyMul"/>
+<tocitem target="pyPow" text="pyPow"/>
 <tocitem target="pySet" text="pySet"/>
 <tocitem target="pyTuple" text="pyTuple"/>
+<tocitem target="pyXor" text="pyXor"/>
 <tocitem target="quitPy" text="quitPy"/>
 <tocitem target="startPy" text="startPy"/>
 </tocitem>

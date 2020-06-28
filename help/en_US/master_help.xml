@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE book [
 <!--Begin Entities-->
-<!ENTITY a8b5d1b5aa020716c1751f353ab621dfd SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/py.xml">
-<!ENTITY a72b905103d2ce11b3011b9ffaa4e2685 SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/pyDict.xml">
-<!ENTITY a7433fed9e74561c6e4457d3de5599078 SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/pyEquals.xml">
-<!ENTITY a89e690319a36c65cf6f3067dd34c63ea SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/pyExec.xml">
-<!ENTITY a5888bc1143cfc9d69eb3e818807518ab SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/pyGet.xml">
-<!ENTITY a55c44492abdba603635addacb5cd7035 SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/pyImport.xml">
-<!ENTITY af29b4fbfab6a9881208f5efe079cc3fc SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/pyList.xml">
-<!ENTITY a61d833696f7fc501d632ebb272cba5a9 SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/pySet.xml">
-<!ENTITY aa6c1d871fcd1c99f6d911ee89a92c382 SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/pyTuple.xml">
-<!ENTITY a178a972b42442ebf47bc62617961d7f5 SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/quitPy.xml">
-<!ENTITY a1dc9e7e96f9a0f85b70076197527cf30 SYSTEM "file:///H:/Scithon/SciPy-v1.0.1/help/en_US/startPy.xml">
+<!ENTITY ab0e029cd18e6a300563d81032e1ab5c2 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/py.xml">
+<!ENTITY a2da29f821b4ce1546bee96bda7ef575b SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/py2sci.xml">
+<!ENTITY a6c93dd5004d88685f9d575639e5a51f9 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyAdd.xml">
+<!ENTITY aa582f5e730d2d0418f781e10a4dc9883 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyDict.xml">
+<!ENTITY a138ebec29eaba75fa7e69b1e07d3d355 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyDiff.xml">
+<!ENTITY ab723bae9c535dd6a4aa487da2ddc0049 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyDiv.xml">
+<!ENTITY a613a1ac135333a4abe5426e07e20e3be SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyEquals.xml">
+<!ENTITY a5badc9ca11cbc02a168e42f0a339ca52 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyExec.xml">
+<!ENTITY a3dce1a764bc3d2a31e67634560f7d536 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyGEquals.xml">
+<!ENTITY a18c3afa1b00ed8b2d03aa0287aa0b2cb SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyGet.xml">
+<!ENTITY a5fcde921c4915313fc316107f6b0b069 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyGreater.xml">
+<!ENTITY a23587356b2d48d55b0465509ee8c012e SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyImport.xml">
+<!ENTITY ab957e6ef08cdabc7e5b3b617c176a3e8 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyLEquals.xml">
+<!ENTITY a9dff05f3913ca15a3dc9dbbe8fd87fdf SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyLesser.xml">
+<!ENTITY adaeea22c764876f1081227e6c43e19c0 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyList.xml">
+<!ENTITY a0e9656019729043bd21adefa1f018872 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyMod.xml">
+<!ENTITY a1ee2065d1f3371de47e9f08058e2476b SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyMul.xml">
+<!ENTITY a544a1b941e26f22b1b5d059bae9d7ffb SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyPow.xml">
+<!ENTITY a3c62f5500237425c368cce7d878e6953 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pySet.xml">
+<!ENTITY af7dd7f54dbfa0d50ce4c156e91032ded SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyTuple.xml">
+<!ENTITY a1bf5428d8fb002902922b64301abc603 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/pyXor.xml">
+<!ENTITY ad185a7a890a1555e2056e236eb43f249 SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/quitPy.xml">
+<!ENTITY adb8703f3110fb76f3cec91a41c57c59c SYSTEM "file:///D:/Scilab_Project/Scithon_master/help/en_US/startPy.xml">
 <!--End Entities-->
 ]>
 <book version="5.0-subset Scilab" xml:lang="en_US"
@@ -23,21 +35,33 @@
       xmlns:html="http://www.w3.org/1999/xhtml"
       xmlns:db="http://docbook.org/ns/docbook">
   <info xml:id='scithon_manual'>
-    <title>scithon</title>
+    <title>Scithon</title>
   </info>
 
-<part xml:id='section_08a6625d402ccd331f716bf0c66eb71a'>
-<title>scithon</title>
-&a8b5d1b5aa020716c1751f353ab621dfd;
-&a72b905103d2ce11b3011b9ffaa4e2685;
-&a7433fed9e74561c6e4457d3de5599078;
-&a89e690319a36c65cf6f3067dd34c63ea;
-&a5888bc1143cfc9d69eb3e818807518ab;
-&a55c44492abdba603635addacb5cd7035;
-&af29b4fbfab6a9881208f5efe079cc3fc;
-&a61d833696f7fc501d632ebb272cba5a9;
-&aa6c1d871fcd1c99f6d911ee89a92c382;
-&a178a972b42442ebf47bc62617961d7f5;
-&a1dc9e7e96f9a0f85b70076197527cf30;
+<part xml:id='section_bb852a4ca90c4a33e1030c058272b844'>
+<title>Scithon</title>
+&ab0e029cd18e6a300563d81032e1ab5c2;
+&a2da29f821b4ce1546bee96bda7ef575b;
+&a6c93dd5004d88685f9d575639e5a51f9;
+&aa582f5e730d2d0418f781e10a4dc9883;
+&a138ebec29eaba75fa7e69b1e07d3d355;
+&ab723bae9c535dd6a4aa487da2ddc0049;
+&a613a1ac135333a4abe5426e07e20e3be;
+&a5badc9ca11cbc02a168e42f0a339ca52;
+&a3dce1a764bc3d2a31e67634560f7d536;
+&a18c3afa1b00ed8b2d03aa0287aa0b2cb;
+&a5fcde921c4915313fc316107f6b0b069;
+&a23587356b2d48d55b0465509ee8c012e;
+&ab957e6ef08cdabc7e5b3b617c176a3e8;
+&a9dff05f3913ca15a3dc9dbbe8fd87fdf;
+&adaeea22c764876f1081227e6c43e19c0;
+&a0e9656019729043bd21adefa1f018872;
+&a1ee2065d1f3371de47e9f08058e2476b;
+&a544a1b941e26f22b1b5d059bae9d7ffb;
+&a3c62f5500237425c368cce7d878e6953;
+&af7dd7f54dbfa0d50ce4c156e91032ded;
+&a1bf5428d8fb002902922b64301abc603;
+&ad185a7a890a1555e2056e236eb43f249;
+&adb8703f3110fb76f3cec91a41c57c59c;
 </part>
 </book>

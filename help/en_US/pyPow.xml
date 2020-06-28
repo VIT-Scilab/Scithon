@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="pyTuple" xml:lang="en"
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="pyPow" xml:lang="en"
           xmlns="http://docbook.org/ns/docbook"
           xmlns:db="http://docbook.org/ns/docbook">
   <refnamediv>
-    <refname>pyTuple</refname>
-    <refpurpose>Creates a python tuple. </refpurpose>
+    <refname>pyPow</refname>
+    <refpurpose>Finds the value of base raised to power of exponent. </refpurpose>
   </refnamediv>
   <refsynopsisdiv>
     <title>Syntax</title>
-    <synopsis>pyTuple(arg0, arg1…)</synopsis>
+    <synopsis>pyPow(arg0, arg1) </synopsis>
   </refsynopsisdiv>
   <refsection>
     <title>Arguments</title>
@@ -17,7 +17,7 @@
         <term>arg0</term>
         <listitem>
           <para>
-            Value at index 0 of the Tuple
+            Variable 1 acts as base
           </para>
         </listitem>
       </varlistentry>
@@ -27,18 +27,25 @@
         <term>arg1</term>
         <listitem>
           <para>
-            Value at index 1 of the Tuple
+            Variable 2 acts as exponent
           </para>
         </listitem>
       </varlistentry>
     </variablelist>
   </refsection>
-<refsynopsisdiv>
+  <refsynopsisdiv>
+    <title>Description</title>
+    <para>
+      Raises the first argument to the power of second argument and returns the result; equivalent to arg1 ** arg2 or arg1 ^ arg2. 
+      Arguments can be of type int, double, string, bool or python variable.
+    </para>
+  </refsynopsisdiv> 
+  <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
-    X = pyTuple(1,2,"Hello",3)
-    disp(X(0))
-    disp(X(2))
+    py("a = 5")
+    var = pyGet("a")
+    pyPow(var,3)
  ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

@@ -17,7 +17,7 @@
         <term>arg1</term>
         <listitem>
           <para>
-            Value to be compared.
+            Value to compared.
           </para>
         </listitem>
       </varlistentry>
@@ -42,18 +42,9 @@ to arg1 == arg2. Arguments can be of type int, double, string, bool or python va
   </refsynopsisdiv> 
   <refsynopsisdiv>
     <title>Example</title>
-    <synopsis>--> Py = pyImport("builtins")
- Py  = 
-
-&lt;module 'builtins' (built-in)&gt;
---> a = Py.int(1)
- a  = 
-
-1
---> pyEquals(a,1)
- ans  =
-
-  T
-</synopsis>
+    <programlisting role="example"><![CDATA[
+    py("a=5")
+    pyEquals(5,pyGet("a"))
+ ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

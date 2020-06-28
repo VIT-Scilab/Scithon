@@ -31,16 +31,8 @@
   </refsynopsisdiv> 
   <refsynopsisdiv>
     <title>Example</title>
-    <para>example.py code:</para>
-    <synopsis>a = 5;
-print(a);
-    </synopsis>
-    <synopsis>
-    --&#62; pyExec(&quot;D:\example.py&quot;)
- ans  =
-
-  &quot;5
-&quot;
-    </synopsis>
+    <programlisting role="example"><![CDATA[
+    pyExec("D:\example.py")
+     ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

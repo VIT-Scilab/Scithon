@@ -2,16 +2,28 @@
 <!DOCTYPE map PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN" "http://java.sun.com/products/javahelp/map_1_0.dtd">
 <map version="1.0">
 <mapID target="index" url="index.html"/>
-<mapID target="section_08a6625d402ccd331f716bf0c66eb71a" url="section_08a6625d402ccd331f716bf0c66eb71a.html"/>
+<mapID target="section_bb852a4ca90c4a33e1030c058272b844" url="section_bb852a4ca90c4a33e1030c058272b844.html"/>
 <mapID target="py" url="py.html"/>
+<mapID target="py2sci" url="py2sci.html"/>
+<mapID target="pyAdd" url="pyAdd.html"/>
 <mapID target="pyDict" url="pyDict.html"/>
+<mapID target="pyDiff" url="pyDiff.html"/>
+<mapID target="pyDiv" url="pyDiv.html"/>
 <mapID target="pyEquals" url="pyEquals.html"/>
 <mapID target="pyExec" url="pyExec.html"/>
+<mapID target="pyGEquals" url="pyGEquals.html"/>
 <mapID target="pyGet" url="pyGet.html"/>
+<mapID target="pyGreater" url="pyGreater.html"/>
 <mapID target="pyImport" url="pyImport.html"/>
+<mapID target="pyLEquals" url="pyLEquals.html"/>
+<mapID target="pyLesser" url="pyLesser.html"/>
 <mapID target="pyList" url="pyList.html"/>
+<mapID target="pyMod" url="pyMod.html"/>
+<mapID target="pyMul" url="pyMul.html"/>
+<mapID target="pyPow" url="pyPow.html"/>
 <mapID target="pySet" url="pySet.html"/>
 <mapID target="pyTuple" url="pyTuple.html"/>
+<mapID target="pyXor" url="pyXor.html"/>
 <mapID target="quitPy" url="quitPy.html"/>
 <mapID target="startPy" url="startPy.html"/>
 </map>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refentry version="5.0-subset Scilab" xmlns:scilab="http://www.scilab.org" xml:id="py2sci" xml:lang="en"
+          xmlns="http://docbook.org/ns/docbook"
+          xmlns:db="http://docbook.org/ns/docbook">
+  <refnamediv>
+    <refname>py2sci</refname>
+    <refpurpose>Converts python variable into scilab variable. </refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <title>Syntax</title>
+    <synopsis>py2sci(PyVar arg)</synopsis>
+  </refsynopsisdiv>
+  <refsection>
+    <title>Arguments</title>
+    <variablelist>
+      <varlistentry>
+        <term>arg</term>
+        <listitem>
+          <para>
+            Python variable to be converted to scilab variable.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsection>
+  <refsynopsisdiv>
+    <title>Description</title>
+    <para>
+      Converts a python variable to its Scilab equivalent
+if possible and returns it. Python numbers and floats are converted to double. 
+Python lists, sets, tuples and other sequence objects are converted to scilab lists. 
+Python dictionaries are converted to a list containing two lists, former containing the keys and the latter containing the values.
+    </para>
+  </refsynopsisdiv> 
+  <refsynopsisdiv>
+    <title>Example</title>
+    <programlisting role="example"><![CDATA[
+    py("a = 5")
+        var = pyGet("a")
+        sci_var = py2sci(var)
+     ]]></programlisting>
+  </refsynopsisdiv>
+</refentry>

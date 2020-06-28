@@ -8,18 +8,18 @@
   </refnamediv>
   <refsynopsisdiv>
     <title>Syntax</title>
-    <synopsis>pyImport(string Module_Name)</synopsis>
+    <synopsis>pyImport("Module_Name")</synopsis>
   </refsynopsisdiv>
   <refsection>
-    <variablelist>
+  <variablelist>
       <varlistentry>
-          <term>Module_Name</term>
-          <listitem>
-            <para>
-              The module to be imported like numpy, builtins etc.
-            </para>
-          </listitem>
-        </varlistentry>
+        <term>Module_Name</term>
+        <listitem>
+          <para>
+            The module to be imported like numpy, builtins etc.
+          </para>
+        </listitem>
+      </varlistentry>
     </variablelist>
   </refsection>
   <refsynopsisdiv>
@@ -30,14 +30,9 @@
   </refsynopsisdiv> 
   <refsynopsisdiv>
     <title>Example</title>
-    <synopsis>--&#62; Py = pyImport(&quot;builtins&quot;)
- Py  = 
-
-	&#60;module &apos;builtins&apos; (built-in)&#62;
---&#62; var = Py.complex(1,2)
- var  = 
-
-(1+2j)
-</synopsis>
+    <programlisting role="example"><![CDATA[
+    Py = pyImport("builtins")
+    var = Py.complex(1,2)
+ ]]></programlisting>
   </refsynopsisdiv>
 </refentry>
