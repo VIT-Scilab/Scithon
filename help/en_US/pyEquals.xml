@@ -43,8 +43,10 @@ to arg1 == arg2. Arguments can be of type int, double, string, bool or python va
   <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
+    startPy
     py("a=5")
     pyEquals(5,pyGet("a"))
+    quitPy
  ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

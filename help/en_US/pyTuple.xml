@@ -36,9 +36,11 @@
 <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
+    startPy
     X = pyTuple(1,2,"Hello",3)
     disp(X(0))
     disp(X(2))
+    quitPy
  ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

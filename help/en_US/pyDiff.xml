@@ -43,9 +43,11 @@
   <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
-      py("a = 5")
-      var = pyGet("a")
-      pyDiff(var,3)
+    startPy
+    py("a = 5")
+    var = pyGet("a")
+    pyDiff(var,3)
+    quitPy
      ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

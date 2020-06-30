@@ -32,7 +32,9 @@
   <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
+    startPy
     pyExec("D:\example.py")
+    quitPy
      ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

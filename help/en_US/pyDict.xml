@@ -44,8 +44,10 @@ variable. Python variables passed for keys must be hashable.
     <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
+    startPy
     Y = pyDict("hello", "world")
     disp(Y("hello"))
+    quitPy
  ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

@@ -43,9 +43,11 @@ passed. Arguments can be of type int, double, string, bool or python variable.
   <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
+    startPy
     X = pyList(1,2,"Hello",3)
     disp(X(0))
     disp(X(2))
+    quitPy
  ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

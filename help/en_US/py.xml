@@ -33,7 +33,9 @@ passed. Arguments can be of type int, double, string, bool or python variable.
   <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
+    startPy
     py("a = 50; b = a**2;print(b)")
+    quitPy
      ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

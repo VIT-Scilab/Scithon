@@ -35,9 +35,11 @@ Python dictionaries are converted to a list containing two lists, former contain
   <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
+    startPy
     py("a = 5")
-        var = pyGet("a")
-        sci_var = py2sci(var)
+    var = pyGet("a")
+    sci_var = py2sci(var)
+    quitPy
      ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

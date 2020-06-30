@@ -34,8 +34,10 @@ pyExec().
   <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
+    startPy
     py("a=5")
     pyGet("a")
+    quitPy
      ]]></programlisting>
   </refsynopsisdiv>
 </refentry>

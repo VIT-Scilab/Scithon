@@ -31,8 +31,10 @@
   <refsynopsisdiv>
     <title>Example</title>
     <programlisting role="example"><![CDATA[
+    startPy
     Py = pyImport("builtins")
     var = Py.complex(1,2)
+    quitPy
  ]]></programlisting>
   </refsynopsisdiv>
 </refentry>
