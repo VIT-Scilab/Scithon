@@ -39,7 +39,6 @@ types::Function::ReturnValue sci_pyExec(types::typed_list& in, int _iRetCount,
     types::String *pIn = in[0]->getAs<types::String>();
     wchar_t **winput = pIn -> get();
     char *input = new char[wcslen(*winput) + 1];
-    //sprintf(input, "%ws", *winput);
     wcstombs(input, *winput, wcslen(*winput) + 1);
     FILE *fp = fopen(input, "rb");
     if (fp == NULL) {
@@ -63,8 +62,6 @@ types::Function::ReturnValue sci_pyExec(types::typed_list& in, int _iRetCount,
     char *output = new char[GetStdOutSize() + 1];
     GetStdOut(output);
     sciprint(output);
-    // types::String *pOut = new types::String(output);
-    // out.push_back(pOut);
     delete input;
     delete output;
     return types::Function::OK;

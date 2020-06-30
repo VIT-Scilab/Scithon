@@ -45,7 +45,6 @@ types::Function::ReturnValue sci_checkPython(types::typed_list& in, int _iRetCou
         }        
         const wchar_t *final_path = final_home.c_str();
         char *path = new char[final_home.length() + 1];
-        //sprintf(path,"%ws",final_path);
         wcstombs(path, final_path, wcslen(final_path) + 1);
         size_t len = final_home.length();
         Py_SetPythonHome(Py_DecodeLocale(path, &len));

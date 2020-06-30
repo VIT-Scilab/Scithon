@@ -6,9 +6,18 @@
 #include "alltypes.hxx"
 
 extern "C" {
-#include "dynlib_scithon_src.h"
 #include "PythonInstance.h"  
 }
+
+#ifdef _MSC_VER
+#ifdef SCITHON_EXPORTS
+#define SCITHON_SRC_IMPEXP __declspec(dllexport)
+#else
+#define SCITHON_SRC_IMPEXP __declspec(dllimport)
+#endif
+#else
+#define SCITHON_SRC_IMPEXP
+#endif
 
 namespace types{
 class SCITHON_SRC_IMPEXP PyVar : public UserType {

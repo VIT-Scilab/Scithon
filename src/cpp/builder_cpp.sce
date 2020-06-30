@@ -1,7 +1,6 @@
 function build_cpp()
     origPath = pwd();
     cppPath = get_absolute_file_path("builder_cpp.sce");
-    //cd(cppPath);
 
     CFLAGS = ilib_include_flag(cppPath);
     CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(cppPath + "../c"));
@@ -23,7 +22,6 @@ function build_cpp()
     src_cpp = ["PyVar.cpp"];
 
     tbx_build_src("PyVar", src_cpp, "cpp", cppPath, ["../c/libPythonInstance"], LDFLAGS, CFLAGS);
-    //cd(origPath);
 endfunction
 
 build_cpp();

@@ -39,7 +39,6 @@ types::Function::ReturnValue sci_pyGet(types::typed_list& in, int _iRetCount,
     types::String *pIn = in[0]->getAs<types::String>();
     wchar_t **winput = pIn -> get();
     char *input = new char[wcslen(*winput) + 1];
-    //sprintf(input, "%ws", *winput);
     wcstombs(input, *winput, wcslen(*winput) + 1);
     
     PyObject *var = GetPyObject(input);
