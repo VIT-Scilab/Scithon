@@ -68,5 +68,6 @@ Students involved in the making of the toolbox:
     Aakash
 
 Toolbox was built under the supervision of Dr. T. Subbulakshmi 
+Acknowledgement: Dr. Kannan Mani Moudgalya, Free/Libre and Open Source Software for Education, IIT Bombay, Govt. of India
 
-If you have any queries, email us at __________
+If you have any queries, email us at vitscope.scilab@gmail.com
