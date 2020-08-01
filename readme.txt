@@ -62,10 +62,11 @@ ________________________________________________________________________________
 This toolbox was made entirely by students of Vellore Institute of Technology, Chennai
 Students involved in the making of the toolbox:
     Jishnu 
-    Adrian
-    Adityan
-    Dheekksha
-    Aakash
+    Adrian Nirmal Andrew
+    Adityan Sunil Kumar
+    Dheekksha R
+    Aakash Ezhilan
+    Mahesh
 
 Toolbox was built under the supervision of Dr. T. Subbulakshmi 
 Acknowledgement: Dr. Kannan Mani Moudgalya, Free/Libre and Open Source Software for Education, IIT Bombay, Govt. of India
