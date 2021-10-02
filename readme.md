@@ -1,13 +1,22 @@
 This toolbox embeds Python in Scilab, allowing the use of python data and python modules, both standard and non standard, in scilab
 
-Requirements
-------------
-Windows 10 Or Ubuntu; 64 bit
-Scilab v6.1.0
-Python 3.8.x, 64 bit version (optional, but recommended)
+### Requirements
 
-Frequestly Asked Questions
----------------------------
+- Windows 10 Or Ubuntu; 64 bit
+- Scilab v6.1.0
+- Python 3.8.x, 64 bit version (optional, but recommended)
+- MSVC compiler must be installed before building the toolbox for smooth working. 
+
+### Building Instructions
+
+1. Install Scilab 6.1.x.
+2. Download the toolbox source code from github repository or Scilab atoms.
+3. Open builder.sce file in the source code and execute the same.
+4. Refer to the help files to understand the usage of toolbox functionalities.
+
+
+### Frequestly Asked Questions
+
 1. I have python 3.8 installed, but the toolbox still says user installation not found
 
 i) Try restarting Scilab
