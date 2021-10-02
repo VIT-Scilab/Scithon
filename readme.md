@@ -19,9 +19,12 @@ This toolbox embeds Python in Scilab, allowing the use of python data and python
 
 1. I have python 3.8 installed, but the toolbox still says user installation not found
 
-i) Try restarting Scilab
-ii) Try restarting your device
-iii) Try setting Python 3.8.x as the default python interpreter
+i) Try restarting Scilab 
+
+ii) Try restarting your device 
+
+iii) Try setting Python 3.8.x as the default python interpreter 
+
 _______________________________________________________________________________________________________________________________
 2. How do I install and use external modules ?
 
