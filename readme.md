@@ -3,15 +3,15 @@ This toolbox embeds Python in Scilab, allowing the use of python data and python
 ### Requirements
 
 - **Operating System**: Windows 10 or any Linux distribution (64-bit)
-- **Scilab Version**: v6.1.0
+- **Scilab Version**: 2025.0.0
 - **Python**:
     - Linux: Any Python version along with the header files (`python3-dev` package on Debian based distros)
-    - Windows: Python 3.8.x
+    - Windows: Python 3.13
 - **MSVC Compiler**: Required for building on Windows
 
 ### Building Instructions (Linux)
 
-1. Install Scilab 6.1.x.
+1. Install Scilab.
 2. Download the toolbox source code from github repository or Scilab atoms.
 3. Ensure Python is installed and run the `setup.py` script from the git repository to configure the environment.
     ```bash
@@ -23,26 +23,26 @@ This toolbox embeds Python in Scilab, allowing the use of python data and python
 
 ### Building Instructions (Windows)
 
-1. Install Scilab 6.1.x.
+1. Install Scilab.
 2. Download the toolbox source code from github repository or Scilab atoms.
 3. Open builder.sce file in the source code and execute the same.
 4. Refer to the help files to understand the usage of toolbox functionalities.
 
 ### Frequestly Asked Questions
 
-1. I have python 3.8 installed, but the toolbox still says user installation not found
+1. I have python 3.13 installed, but the toolbox still says user installation not found
 
     i) Try restarting Scilab
 
     ii) Try restarting your device
 
-    iii) Try setting Python 3.8.x as the default python interpreter
+    iii) Try setting Python 3.13 as the default python interpreter
 
 ---
 
 2. How do I install and use external modules ?
 
-    You need to install python 3.8.x externally and install the modules you wish to use through pip externally.
+    You need to install python 3.13 externally and install the modules you wish to use through pip externally.
     You will be able to use all the user installed modules just like the standard ones.
 
 ---
