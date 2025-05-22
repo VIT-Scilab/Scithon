@@ -32,7 +32,7 @@ function scithonlib = startModule()
   mprintf("\tLoad gateways\n");
   os = getos();
   if (os == "Windows") then
-    link(root_tlbx + "/thirdparty/Windows/python38.dll");
+    link(root_tlbx + "/thirdparty/Windows/python313.dll");
   else
     link("/usr/lib/libpython3.so");
   end

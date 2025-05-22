@@ -16,11 +16,6 @@ def global_pos_only_and_normal(a, /, b):
 def global_pos_only_defaults(a=1, /, b=2):
     return a, b
 
-def global_inner_has_pos_only():
-    def f(x: int, /): ...
-    return f
-
-
 class PositionalOnlyTestCase(unittest.TestCase):
 
     def assertRaisesSyntaxError(self, codestr, regex="invalid syntax"):
@@ -28,10 +23,11 @@ class PositionalOnlyTestCase(unittest.TestCase):
             compile(codestr + "\n", "<test>", "single")
 
     def test_invalid_syntax_errors(self):
-        check_syntax_error(self, "def f(a, b = 5, /, c): pass", "non-default argument follows default argument")
-        check_syntax_error(self, "def f(a = 5, b, /, c): pass", "non-default argument follows default argument")
-        check_syntax_error(self, "def f(a = 5, b=1, /, c, *, d=2): pass", "non-default argument follows default argument")
-        check_syntax_error(self, "def f(a = 5, b, /): pass", "non-default argument follows default argument")
+        check_syntax_error(self, "def f(a, b = 5, /, c): pass", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "def f(a = 5, b, /, c): pass", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "def f(a = 5, b=1, /, c, *, d=2): pass", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "def f(a = 5, b, /): pass", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "def f(a, /, b = 5, c): pass", "parameter without a default follows parameter with a default")
         check_syntax_error(self, "def f(*args, /): pass")
         check_syntax_error(self, "def f(*args, a, /): pass")
         check_syntax_error(self, "def f(**kwargs, /): pass")
@@ -49,10 +45,11 @@ class PositionalOnlyTestCase(unittest.TestCase):
         check_syntax_error(self, "def f(a, *, c, /, d, e): pass")
 
     def test_invalid_syntax_errors_async(self):
-        check_syntax_error(self, "async def f(a, b = 5, /, c): pass", "non-default argument follows default argument")
-        check_syntax_error(self, "async def f(a = 5, b, /, c): pass", "non-default argument follows default argument")
-        check_syntax_error(self, "async def f(a = 5, b=1, /, c, d=2): pass", "non-default argument follows default argument")
-        check_syntax_error(self, "async def f(a = 5, b, /): pass", "non-default argument follows default argument")
+        check_syntax_error(self, "async def f(a, b = 5, /, c): pass", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "async def f(a = 5, b, /, c): pass", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "async def f(a = 5, b=1, /, c, d=2): pass", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "async def f(a = 5, b, /): pass", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "async def f(a, /, b = 5, c): pass", "parameter without a default follows parameter with a default")
         check_syntax_error(self, "async def f(*args, /): pass")
         check_syntax_error(self, "async def f(*args, a, /): pass")
         check_syntax_error(self, "async def f(**kwargs, /): pass")
@@ -236,9 +233,11 @@ class PositionalOnlyTestCase(unittest.TestCase):
         self.assertEqual(x(1, 2), 3)
 
     def test_invalid_syntax_lambda(self):
-        check_syntax_error(self, "lambda a, b = 5, /, c: None", "non-default argument follows default argument")
-        check_syntax_error(self, "lambda a = 5, b, /, c: None", "non-default argument follows default argument")
-        check_syntax_error(self, "lambda a = 5, b, /: None", "non-default argument follows default argument")
+        check_syntax_error(self, "lambda a, b = 5, /, c: None", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "lambda a = 5, b, /, c: None", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "lambda a = 5, b=1, /, c, *, d=2: None", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "lambda a = 5, b, /: None", "parameter without a default follows parameter with a default")
+        check_syntax_error(self, "lambda a, /, b = 5, c: None", "parameter without a default follows parameter with a default")
         check_syntax_error(self, "lambda *args, /: None")
         check_syntax_error(self, "lambda *args, a, /: None")
         check_syntax_error(self, "lambda **kwargs, /: None")
@@ -265,12 +264,6 @@ class PositionalOnlyTestCase(unittest.TestCase):
         expected = r"f\(\) got some positional-only arguments passed as keyword arguments: 'b'"
         with self.assertRaisesRegex(TypeError, expected):
             Example().f(1, b=2)
-
-    def test_mangling(self):
-        class X:
-            def f(self, *, __a=42):
-                return __a
-        self.assertEqual(X().f(), 42)
 
     def test_module_function(self):
         with self.assertRaisesRegex(TypeError, r"f\(\) missing 2 required positional arguments: 'a' and 'b'"):
@@ -306,6 +299,29 @@ class PositionalOnlyTestCase(unittest.TestCase):
             f(1,2)(3)
         with self.assertRaisesRegex(TypeError, r"g\(\) takes 2 positional arguments but 3 were given"):
             f(1,2)(3,4,5)
+
+    def test_annotations_in_closures(self):
+
+        def inner_has_pos_only():
+            def f(x: int, /): ...
+            return f
+
+        assert inner_has_pos_only().__annotations__ == {'x': int}
+
+        class Something:
+            def method(self):
+                def f(x: int, /): ...
+                return f
+
+        assert Something().method().__annotations__ == {'x': int}
+
+        def multiple_levels():
+            def inner_has_pos_only():
+                def f(x: int, /): ...
+                return f
+            return inner_has_pos_only()
+
+        assert multiple_levels().__annotations__ == {'x': int}
 
     def test_same_keyword_as_positional_with_kwargs(self):
         def f(something,/,**kwargs):
@@ -417,19 +433,16 @@ class PositionalOnlyTestCase(unittest.TestCase):
 
         self.assertEqual(C().method(), sentinel)
 
-    def test_annotations(self):
-        assert global_inner_has_pos_only().__annotations__ == {'x': int}
-
     def test_annotations_constant_fold(self):
         def g():
             def f(x: not (int is int), /): ...
 
         # without constant folding we end up with
-        # COMPARE_OP(is), UNARY_NOT
-        # with constant folding we should expect a COMPARE_OP(is not)
+        # COMPARE_OP(is), IS_OP (0)
+        # with constant folding we should expect a IS_OP (1)
         codes = [(i.opname, i.argval) for i in dis.get_instructions(g)]
         self.assertNotIn(('UNARY_NOT', None), codes)
-        self.assertIn(('COMPARE_OP', 'is not'), codes)
+        self.assertIn(('IS_OP', 1), codes)
 
 
 if __name__ == "__main__":

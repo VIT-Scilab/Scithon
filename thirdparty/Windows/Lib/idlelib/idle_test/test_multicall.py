@@ -3,10 +3,11 @@
 from idlelib import multicall
 import unittest
 from test.support import requires
+from test.support.testcase import ExtraAssertions
 from tkinter import Tk, Text
 
 
-class MultiCallTest(unittest.TestCase):
+class MultiCallTest(unittest.TestCase, ExtraAssertions):
 
     @classmethod
     def setUpClass(cls):
@@ -27,7 +28,7 @@ class MultiCallTest(unittest.TestCase):
     def test_creator(self):
         mc = self.mc
         self.assertIs(multicall._multicall_dict[Text], mc)
-        self.assertTrue(issubclass(mc, Text))
+        self.assertIsSubclass(mc, Text)
         mc2 = multicall.MultiCallCreator(Text)
         self.assertIs(mc, mc2)
 
@@ -37,7 +38,7 @@ class MultiCallTest(unittest.TestCase):
 
     def test_yview(self):
         # Added for tree.wheel_event
-        # (it depends on yview to not be overriden)
+        # (it depends on yview to not be overridden)
         mc = self.mc
         self.assertIs(mc.yview, Text.yview)
         mctext = self.mc(self.root)

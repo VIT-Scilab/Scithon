@@ -1,6 +1,8 @@
 import sys
+import textwrap
 from test import list_tests
 from test.support import cpython_only
+from test.support.script_helper import assert_python_ok
 import pickle
 import unittest
 
@@ -46,6 +48,34 @@ class ListTest(list_tests.CommonTest):
         with self.assertRaisesRegex(TypeError, 'keyword argument'):
             list(sequence=[])
 
+    def test_keywords_in_subclass(self):
+        class subclass(list):
+            pass
+        u = subclass([1, 2])
+        self.assertIs(type(u), subclass)
+        self.assertEqual(list(u), [1, 2])
+        with self.assertRaises(TypeError):
+            subclass(sequence=())
+
+        class subclass_with_init(list):
+            def __init__(self, seq, newarg=None):
+                super().__init__(seq)
+                self.newarg = newarg
+        u = subclass_with_init([1, 2], newarg=3)
+        self.assertIs(type(u), subclass_with_init)
+        self.assertEqual(list(u), [1, 2])
+        self.assertEqual(u.newarg, 3)
+
+        class subclass_with_new(list):
+            def __new__(cls, seq, newarg=None):
+                self = super().__new__(cls, seq)
+                self.newarg = newarg
+                return self
+        u = subclass_with_new([1, 2], newarg=3)
+        self.assertIs(type(u), subclass_with_new)
+        self.assertEqual(list(u), [1, 2])
+        self.assertEqual(u.newarg, 3)
+
     def test_truth(self):
         super().test_truth()
         self.assertTrue(not [])
@@ -67,6 +97,24 @@ class ListTest(list_tests.CommonTest):
         def imul(a, b): a *= b
         self.assertRaises((MemoryError, OverflowError), mul, lst, n)
         self.assertRaises((MemoryError, OverflowError), imul, lst, n)
+
+    def test_empty_slice(self):
+        x = []
+        x[:] = x
+        self.assertEqual(x, [])
+
+    def test_list_resize_overflow(self):
+        # gh-97616: test new_allocated * sizeof(PyObject*) overflow
+        # check in list_resize()
+        lst = [0] * 65
+        del lst[1:]
+        self.assertEqual(len(lst), 1)
+
+        size = sys.maxsize
+        with self.assertRaises((MemoryError, OverflowError)):
+            lst * size
+        with self.assertRaises((MemoryError, OverflowError)):
+            lst *= size
 
     def test_repr_large(self):
         # Check the repr of large list objects
@@ -150,6 +198,11 @@ class ListTest(list_tests.CommonTest):
             a[:] = data
             self.assertEqual(list(it), [])
 
+    def test_step_overflow(self):
+        a = [0, 1, 2, 3, 4]
+        a[1::sys.maxsize] = [0]
+        self.assertEqual(a[3::sys.maxsize], [3])
+
     def test_no_comdat_folding(self):
         # Issue 8847: In the PGO build, the MSVC linker's COMDAT folding
         # optimization causes failures in code that relies on distinct
@@ -182,6 +235,31 @@ class ListTest(list_tests.CommonTest):
         list3 = [Z()]
         list4 = [1]
         self.assertFalse(list3 == list4)
+
+    def test_lt_operator_modifying_operand(self):
+        # See gh-120298
+        class evil:
+            def __lt__(self, other):
+                other.clear()
+                return NotImplemented
+
+        a = [[evil()]]
+        with self.assertRaises(TypeError):
+            a[0] < a
+
+    def test_list_index_modifing_operand(self):
+        # See gh-120384
+        class evil:
+            def __init__(self, lst):
+                self.lst = lst
+            def __iter__(self):
+                yield from self.lst
+                self.lst.clear()
+
+        lst = list(range(5))
+        operand = evil(lst)
+        with self.assertRaises(ValueError):
+            lst[::-1] = operand
 
     @cpython_only
     def test_preallocation(self):
@@ -223,6 +301,35 @@ class ListTest(list_tests.CommonTest):
         lst = [X(), X()]
         X() in lst
 
+    def test_tier2_invalidates_iterator(self):
+        # GH-121012
+        for _ in range(100):
+            a = [1, 2, 3]
+            it = iter(a)
+            for _ in it:
+                pass
+            a.append(4)
+            self.assertEqual(list(it), [])
+
+    def test_deopt_from_append_list(self):
+        # gh-132011: it used to crash, because
+        # of `CALL_LIST_APPEND` specialization failure.
+        code = textwrap.dedent("""
+            l = []
+            def lappend(l, x, y):
+                l.append((x, y))
+            for x in range(3):
+                lappend(l, None, None)
+            try:
+                lappend(list, None, None)
+            except TypeError:
+                pass
+            else:
+                raise AssertionError
+        """)
+
+        rc, _, _ = assert_python_ok("-c", code)
+        self.assertEqual(rc, 0)
 
 if __name__ == "__main__":
     unittest.main()
