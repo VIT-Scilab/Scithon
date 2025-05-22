@@ -128,7 +128,7 @@ function builder_gateway_cpp()
 
         LDFLAGS = fullpath(gwPath + "../../src/c/libPythonInstance.lib");
         LDFLAGS = LDFLAGS + " " + fullpath(gwPath + "../../src/cpp/libPyVar.lib");
-        LDFLAGS = LDFLAGS + " " + fullpath(gwPath + "../../thirdparty/Windows/libs/python38.lib");
+        LDFLAGS = LDFLAGS + " " + fullpath(gwPath + "../../thirdparty/Windows/libs/python313.lib");
     else
         CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(gwPath + "../../thirdparty/Linux/include"));
         CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(SCI + "/../../include/scilab"));

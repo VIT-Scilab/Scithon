@@ -10,7 +10,7 @@ function build_cpp()
         CFLAGS = CFLAGS + " " + ilib_include_flag(SCI + "/modules/ast/includes");
         CFLAGS = CFLAGS + " -DSCITHON_EXPORTS";
         
-        LDFLAGS = fullpath(cppPath + "../../thirdparty/Windows/libs/python38.lib");
+        LDFLAGS = fullpath(cppPath + "../../thirdparty/Windows/libs/python313.lib");
         LDFLAGS = LDFLAGS + " " + fullpath(cppPath + "../c/libPythonInstance.lib");
     else
         CFLAGS = CFLAGS + " " + ilib_include_flag(fullpath(cppPath + "../../thirdparty/Linux/include"));
